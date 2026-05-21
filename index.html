@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAMHIN POLICE CUP 2026 | PREMIER LEAGUE STYLE</title>
+    <title>LAMHIN POLICE CUP 2026 | OFFICIAL SITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Krona+One&display=swap" rel="stylesheet">
@@ -11,13 +11,15 @@
     
     <style>
         :root {
-            /* EPL Color Palette */
-            --epl-purple: #38003c;
-            --epl-mint: #00ff85;
-            --epl-pink: #ff005a;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.12);
+            /* Lumhin Police Emblem Theme Palette */
+            --police-blue-dark: #050b18;
+            --police-blue-mid: #0f2557;
+            --police-blue-light: #1d4ed8;
+            --police-yellow: #fbbf24;
             --white: #ffffff;
+            --glass-bg: rgba(15, 32, 67, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-dim: #94a3b8;
             --font-main: 'Kanit', sans-serif;
             --font-head: 'Krona One', sans-serif;
         }
@@ -25,8 +27,8 @@
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
-            /* พื้นหลังสีเดียวกันทั้งหน้า แบบไล่เฉดหรูๆ สไตล์ EPL */
-            background: linear-gradient(135deg, #020617 0%, #38003c 50%, #1e1b4b 100%);
+            /* พื้นหลังสีน้ำเงินไล่เฉด คุมโทนสีโลโก้ สน. ทั้งหน้าเว็บ */
+            background: linear-gradient(135deg, var(--police-blue-dark) 0%, var(--police-blue-mid) 50%, #020617 100%);
             background-attachment: fixed;
             color: var(--white);
             font-family: var(--font-main);
@@ -34,7 +36,7 @@
             overflow-x: hidden;
         }
 
-        /* --- GLASS MORPHISM COMMON CLASS --- */
+        /* --- GLASS MORPHISM SYSTEM --- */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -49,31 +51,31 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
         }
-        .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0, 255, 133, 0.3)); }
+        .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
         
         h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; }
-        h1 span { color: var(--epl-mint); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); }
-        .slogan { font-size: 14px; letter-spacing: 5px; color: var(--epl-mint); text-transform: uppercase; margin-top: 10px; font-weight: 600; opacity: 0.9; }
+        h1 span { color: var(--police-yellow); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); }
+        .slogan { font-size: 14px; letter-spacing: 5px; color: var(--police-yellow); text-transform: uppercase; margin-top: 10px; font-weight: 600; opacity: 0.9; }
 
         .hero-info { margin-top: 25px; font-weight: 700; color: var(--white); font-size: 1.3rem; }
 
-        /* --- ARENA INFO (ติดกับวันที่) --- */
+        /* --- ARENA INFO (ชิดติดกับวันที่) --- */
         .arena-intro { padding: 10px 20px 40px; text-align: center; }
-        .arena-intro h2 { font-size: 1.6rem; color: var(--epl-mint); font-weight: 700; margin-bottom: 5px; }
+        .arena-intro h2 { font-size: 1.6rem; color: var(--police-yellow); font-weight: 700; margin-bottom: 5px; }
         .arena-intro p { color: var(--white); opacity: 0.8; font-size: 1rem; }
         
         .btn-nav { 
             display: inline-flex; align-items: center; gap: 10px; 
-            background: var(--epl-mint); color: #000; padding: 12px 30px; 
+            background: var(--police-yellow); color: #000; padding: 12px 30px; 
             border-radius: 50px; font-weight: 700; text-decoration: none; 
-            margin-top: 20px; transition: 0.3s; box-shadow: 0 0 20px rgba(0, 255, 133, 0.4);
+            margin-top: 20px; transition: 0.3s; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
         }
-        .btn-nav:hover { transform: scale(1.05); background: #fff; }
+        .btn-nav:hover { transform: scale(1.05); background: var(--white); }
 
         /* --- STICKY NAVIGATION (Glass Morph) --- */
         .sticky-nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(56, 0, 60, 0.6); /* EPL Purple base */
+            background: rgba(15, 37, 87, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
@@ -85,43 +87,43 @@
             color: var(--white); text-decoration: none; 
             font-size: 0.9rem; font-weight: 500; transition: 0.3s;
         }
-        .nav-link:hover { color: var(--epl-mint); }
+        .nav-link:hover { color: var(--police-yellow); }
 
         /* --- SECTIONS --- */
         section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { font-size: 1.8rem; color: var(--epl-mint); margin-bottom: 35px; text-align: center; text-transform: uppercase; font-weight: 800; }
+        .section-title { font-size: 1.8rem; color: var(--police-yellow); margin-bottom: 35px; text-align: center; text-transform: uppercase; font-weight: 800; }
 
         /* --- TEAM CARDS (Glass) --- */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card { padding: 35px 20px; text-align: center; transition: 0.3s; }
-        .card:hover { border-color: var(--epl-mint); background: rgba(255, 255, 255, 0.08); }
-        .card i { font-size: 2.5rem; color: var(--epl-mint); margin-bottom: 15px; }
+        .card:hover { border-color: var(--police-yellow); background: rgba(255, 255, 255, 0.08); }
+        .card i { font-size: 2.5rem; color: var(--police-yellow); margin-bottom: 15px; }
         .card h3 { color: var(--white); font-weight: 700; margin-bottom: 8px; font-size: 1.4rem; }
 
         /* --- TABS (Glass) --- */
         .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
         .tab-btn { flex: 1; padding: 16px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; opacity: 0.6; }
-        .tab-btn.active { opacity: 1; color: var(--epl-mint); border-bottom-color: var(--epl-mint); }
+        .tab-btn.active { opacity: 1; color: var(--police-yellow); border-bottom-color: var(--police-yellow); }
         .tab-content { padding: 30px; display: none; }
         .tab-content.active { display: block; }
         
         .rule-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
         /* --- MATCH LIST (Glass) --- */
-        .match-card { padding: 20px; margin-bottom: 15px; border-left: 6px solid var(--epl-mint); display: flex; justify-content: space-between; align-items: center; }
-        .match-card span:last-child { font-weight: 800; color: var(--epl-mint); font-family: var(--font-head); font-size: 0.9rem; }
+        .match-card { padding: 20px; margin-bottom: 15px; border-left: 6px solid var(--police-yellow); display: flex; justify-content: space-between; align-items: center; }
+        .match-card span:last-child { font-weight: 800; color: var(--police-yellow); font-family: var(--font-head); font-size: 0.9rem; }
 
         /* --- SUPPORT SECTION (Glass) --- */
-        .support-hero { padding: 50px 20px; text-align: center; border: 2px solid var(--epl-mint); box-shadow: 0 0 30px rgba(0, 255, 133, 0.1); }
-        .pp-top { font-size: 0.85rem; color: var(--epl-mint); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--white); font-weight: 800; display: block; margin: 5px 0 10px; text-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        .support-hero { padding: 50px 20px; text-align: center; border: 2px solid var(--police-yellow); box-shadow: 0 0 30px rgba(251, 191, 36, 0.15); }
+        .pp-top { font-size: 0.85rem; color: var(--police-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--white); font-weight: 800; display: block; margin: 5px 0 10px; text-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
         .qr-box { background: #fff; padding: 15px; border-radius: 20px; display: inline-block; margin-top: 20px; }
         .qr-box img { width: 220px; height: auto; display: block; border-radius: 5px; }
 
         /* --- STICKY BOTTOM BAR (Glass Morph) --- */
         .sticky-footer {
             position: fixed; bottom: 0; width: 100%; z-index: 1001;
-            background: rgba(0, 255, 133, 0.85); /* Mint Green base */
+            background: rgba(251, 191, 36, 0.9); /* สีเหลืองทอง สน. */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             color: #000; padding: 12px 5%;
@@ -130,7 +132,7 @@
             transform: translateY(100%); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .sticky-footer.show { transform: translateY(0); }
-        .sticky-btn { background: #38003c; color: var(--epl-mint); padding: 8px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
+        .sticky-btn { background: #0f2557; color: var(--police-yellow); padding: 8px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; }
 
         footer { text-align: center; padding: 60px 20px 120px; opacity: 0.5; font-size: 0.8rem; }
 
@@ -198,9 +200,9 @@
             </div>
 
             <div id="t1" class="tab-content active">
-                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:var(--epl-mint);">+3 แต้ม</span></div>
+                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:var(--police-yellow);">+3 แต้ม</span></div>
                 <div class="rule-row"><span>เสมอ (Draw)</span><span>+1 แต้ม</span></div>
-                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:var(--epl-pink);">0 แต้ม</span></div>
+                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#ef4444;">0 แต้ม</span></div>
                 <p style="margin-top:15px; opacity:0.6; font-size:0.85rem; text-align: center;">*เพื่อเฟ้นหาหนึ่งมหาอำนาจฟุตบอล สน.ลำหิน</p>
             </div>
 
@@ -208,13 +210,13 @@
                 <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที</span></div>
                 <div class="rule-row"><span>เวลาพักครึ่ง</span><span>5 นาที</span></div>
                 <div class="rule-row"><span>พักเปลี่ยนทีม</span><span>5 นาที</span></div>
-                <div class="rule-row" style="border:none; margin-top:10px; font-weight:800; color:var(--epl-mint);">
+                <div class="rule-row" style="border:none; margin-top:10px; font-weight:800; color:var(--police-yellow);">
                     <span>รวมเวลาทั้งสิ้น</span><span>120 นาที (2 ชม.)</span>
                 </div>
             </div>
 
             <div id="t3" class="tab-content">
-                <p style="font-style: italic; border-left: 4px solid var(--epl-mint); padding-left: 15px; opacity: 0.9;">
+                <p style="font-style: italic; border-left: 4px solid var(--police-yellow); padding-left: 15px; opacity: 0.9;">
                     "เนื่องจากทีม A อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของนักกีฬา"
                 </p>
             </div>
@@ -225,15 +227,15 @@
         <h2 class="section-title">MATCH DAY</h2>
         <div class="match-card glass">
             <span>แมตช์ 1 : เปิดสนาม</span>
-            <span>TEAM A <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM B</span>
+            <span>TEAM A <i class="fa-solid fa-bolt" style="color:var(--police-yellow); margin:0 5px;"></i> TEAM B</span>
         </div>
         <div class="match-card glass">
             <span>แมตช์ 2 : ต่อเนื่อง</span>
-            <span>TEAM B <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM C</span>
+            <span>TEAM B <i class="fa-solid fa-bolt" style="color:var(--police-yellow); margin:0 5px;"></i> TEAM C</span>
         </div>
         <div class="match-card glass">
             <span>แมตช์ 3 : ปิดท้าย</span>
-            <span>TEAM C <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM A</span>
+            <span>TEAM C <i class="fa-solid fa-bolt" style="color:var(--police-yellow); margin:0 5px;"></i> TEAM A</span>
         </div>
     </section>
 
@@ -252,7 +254,7 @@
     </section>
 
     <div class="sticky-footer" id="bottomBar">
-        <span>🏆 LAMHIN POLICE CUP 2026</span>
+        <span>🏆 ร่วมสนับสนุนการแข่งขัน</span>
         <a href="#support" class="sticky-btn">โอนเงิน</a>
     </div>
 
