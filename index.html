@@ -40,7 +40,6 @@
         }
         .main-logo { width: 140px; margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
         
-        /* หัวเรื่องใหญ่คงเดิม */
         h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; }
         h1 span { color: var(--gold); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); text-shadow: 0 0 20px var(--gold-glow); }
         .slogan { font-size: 14px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-top: 15px; }
@@ -129,7 +128,7 @@
     <div class="arena-intro" id="arena">
         <h2>สนามฟุตบอล ยูงทอง FC</h2>
         <p>สนามฟุตบอล 7 คน มาตรฐานคุณภาพสูง ลำหิน</p>
-        <a href="https://share.google/hFbcayjKVyY41QRmQ" target="_blank" class="btn-nav">
+        <a href="https://share.google/qNxb9U32QFJhTzqTu" target="_blank" class="btn-nav">
             <i class="fa-solid fa-location-arrow"></i> นำทางไปสนาม
         </a>
     </div>
@@ -255,7 +254,6 @@
             var bar = document.getElementById("bottomBar");
             var supportSection = document.getElementById("support").offsetTop;
             
-            // แสดงแถบเมื่อเลื่อนลงมาเกิน 500px แต่ซ่อนเมื่อเลื่อนมาถึงส่วนโอนเงินของจริง
             if (window.pageYOffset > 500 && window.pageYOffset < supportSection - 400) {
                 bar.classList.add("show");
             } else {
