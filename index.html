@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMHIN POLICE CUP 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS RESET & CORE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --police-navy: #020617;
+            --police-gold: #fbbf24;
+            --police-blue: #1e293b;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--police-navy);
+            color: var(--white);
+            font-family: 'Kanit', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* CONTAINER */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER & LOGO */
+        .header-section {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--police-gold);
+            margin-bottom: 10px;
+        }
+
+        .police-logo {
+            width: 120px;
+            filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.4));
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        h1 span { color: var(--police-gold); }
+
+        .slogan {
+            letter-spacing: 8px;
+            font-weight: 600;
+            color: var(--police-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* COUNTDOWN GRID */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .count-tile {
+            background: var(--police-blue);
+            border: 1px solid #334155;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .count-num {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--police-gold);
+            line-height: 1;
+        }
+
+        .count-text {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        /* INFORMATION TILES (FIRST VERSION STYLE) */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tile {
+            background: var(--police-blue);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 5px solid var(--police-gold);
+        }
+
+        .tile-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--police-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* STADIUM BUTTON */
+        .stadium-link {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551952237-954a0e68786c?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            transition: 0.3s;
+            border: 1px solid #334155;
+        }
+
+        .stadium-link:hover { border-color: var(--police-gold); }
+
+        .btn-nav {
+            background: var(--police-gold);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* TEAMS TABLE */
+        .team-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .team-card {
+            background: #0f172a;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #1e293b;
+        }
+
+        .team-card i { font-size: 2rem; color: var(--police-gold); margin-bottom: 10px; }
+
+        /* PROMPTPAY HIGHLIGHT (IMPORTANT) */
+        .support-box {
+            background: var(--police-gold);
+            color: #000;
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .pp-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem; /* ใหญ่เด่นชัด */
+            font-weight: 900;
+            display: block;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .pp-qr {
+            background: white;
+            display: inline-block;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.8rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid-layout, .team-box { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .pp-number { font-size: 2.2rem; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <div class="header-section">
+            <img src="https://i.ibb.co/L9H0FmY/Lamhin-Logo.png" alt="สน.ลำหิน" class="police-logo">
+            <p class="slogan">STRENGTH • UNITY • GLORY</p>
+            <h1>LAMHIN POLICE <span>CUP 2026</span></h1>
+        </div>
+
+        <div class="countdown-grid">
+            <div class="count-tile"><span class="count-num" id="d">00</span><span class="count-text">Days</span></div>
+            <div class="count-tile"><span class="count-num" id="h">00</span><span class="count-text">Hours</span></div>
+            <div class="count-tile"><span class="count-num" id="m">00</span><span class="count-text">Mins</span></div>
+            <div class="count-tile"><span class="count-num" id="s">00</span><span class="count-text">Secs</span></div>
+        </div>
+
+        <div class="grid-layout">
+            <div class="tile">
+                <div class="tile-title"><i class="fa-solid fa-calendar-check"></i> SCHEDULE</div>
+                <p style="font-size: 1.2rem; font-weight: 600;">วันศุกร์ที่ 22 พฤษภาคม 2569</p>
+                <p>เวลา 15.00 น. เป็นต้นไป (โปรดเตรียมตัวก่อนเวลาแข่ง)</p>
+                <p style="margin-top: 10px; color: #94a3b8; font-size: 0.9rem;">ระบบการแข่งขัน: เก็บคะแนนพบกันหมด ครึ่งละ 15 นาที</p>
+            </div>
+            <a href="https://share.google/hFbcayjKVyY41QRmQ" target="_blank" class="stadium-link">
+                <i class="fa-solid fa-location-dot" style="font-size: 2rem; color: var(--police-gold);"></i>
+                <span style="font-weight: 700; margin-top: 5px;">สนามยูงทอง FC</span>
+                <div class="btn-nav">คลิกเพื่อนำทางไปสนาม</div>
+            </a>
+        </div>
+
+        <div class="team-box">
+            <div class="team-card">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <p style="color: var(--police-gold); font-weight: 700;">TEAM A</p>
+                <p style="font-size: 0.85rem;">ฝ่ายงานสอบสวน</p>
+            </div>
+            <div class="team-card">
+                <i class="fa-solid fa-user-tie"></i>
+                <p style="color: var(--police-gold); font-weight: 700;">TEAM B</p>
+                <p style="font-size: 0.85rem;">สืบสวน + อำนวยการ</p>
+            </div>
+            <div class="team-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p style="color: var(--police-gold); font-weight: 700;">TEAM C</p>
+                <p style="font-size: 0.85rem;">ปราบปราม + จราจร</p>
+            </div>
+        </div>
+
+        <div class="tile" style="margin-bottom: 10px;">
+            <div class="tile-title"><i class="fa-solid fa-trophy"></i> MATCH DAY</div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #334155; padding: 8px 0;">
+                <span>MATCH 1: เปิดสนาม</span><span style="color: var(--police-gold);">TEAM A VS TEAM B</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #334155; padding: 8px 0;">
+                <span>MATCH 2: ต่อเนื่อง</span><span style="color: var(--police-gold);">TEAM B VS TEAM C</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                <span>MATCH 3: ปิดท้าย</span><span style="color: var(--police-gold);">TEAM C VS TEAM A</span>
+            </div>
+        </div>
+
+        <div class="support-box">
+            <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">ร่วมสนับสนุนกองทุนสวัสดิการ สน.ลำหิน</p>
+            <p style="font-size: 0.9rem; margin-top: 5px;">โอนผ่านหมายเลข PromptPay (เบอร์โทรศัพท์)</p>
+            
+            <span class="pp-number">061 287 8990</span>
+            
+            <p style="font-size: 1.5rem; font-weight: 700;">นาย จิรายุส ครองยุติ</p>
+            
+            <div class="pp-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020101021130370016A0000006770101110113006606128789905802TH53037646304" alt="QR PromptPay 0612878990">
+                <p style="color: #000; font-weight: 800; font-size: 0.7rem; margin-top: 5px;">SCAN TO PAY</p>
+            </div>
+        </div>
+
+        <footer>
+            สน.ลำหิน 4.0 | แข่งขันเพื่อความสามัคคีและเกียรติยศ<br>
+            © 2026 Lamhin Police Cup Official
+        </footer>
+
+    </div>
+
+    <script>
+        // Countdown Logic
+        const target = new Date("May 22, 2026 15:00:00").getTime();
+        function update() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("s").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>
