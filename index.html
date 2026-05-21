@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAMHIN POLICE CUP 2026</title>
+    <title>LAMHIN POLICE CUP 2026 | OFFICIAL SITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Krona+One&display=swap" rel="stylesheet">
@@ -11,11 +11,13 @@
     
     <style>
         :root {
-            --bg-dark: #020617;
-            --bg-card: #0f172a;
-            --accent-gold: #fbbf24;
-            --accent-blue: #3b82f6;
-            --text-white: #f8fafc;
+            --navy-deep: #020617;
+            --navy-surface: #0f172a;
+            --navy-accent: #1e293b;
+            --gold: #fbbf24;
+            --gold-glow: rgba(251, 191, 36, 0.4);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
             --font-head: 'Krona One', sans-serif;
             --font-body: 'Kanit', sans-serif;
         }
@@ -23,195 +25,292 @@
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
+            background-color: var(--navy-deep);
+            color: var(--text-main);
             font-family: var(--font-body);
-            line-height: 1.4;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- HERO & LOGO --- */
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--navy-accent);
+            padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo img { height: 35px; }
+        .nav-logo span { font-family: var(--font-head); color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; }
+        
+        .nav-menu { display: flex; gap: 20px; list-style: none; }
+        .nav-menu a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--gold); }
+
+        /* --- HERO --- */
         header {
             min-height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
-            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.2) 0%, var(--bg-dark) 80%);
+            text-align: center; padding: 100px 20px 60px;
+            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.15) 0%, var(--navy-deep) 80%);
         }
-
-        .main-logo { width: 140px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.4)); }
-        
-        h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 10px; text-transform: uppercase; }
-        h1 span { color: var(--accent-gold); display: block; font-size: clamp(2.2rem, 10vw, 4.5rem); }
-
-        .slogan { font-size: 14px; letter-spacing: 6px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 5px; }
+        .hero-logo { width: 150px; margin-bottom: 30px; filter: drop-shadow(0 0 20px var(--gold-glow)); }
+        h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4.5rem); line-height: 1; text-transform: uppercase; margin-bottom: 10px; }
+        h1 span { color: var(--gold); display: block; font-size: clamp(2.5rem, 10vw, 5rem); text-shadow: 0 0 30px var(--gold-glow); }
+        .hero-date { font-size: 1.2rem; color: var(--gold); margin: 20px 0; font-weight: 600; letter-spacing: 2px; }
 
         /* --- COUNTDOWN --- */
-        .countdown-row { display: flex; gap: 10px; margin-bottom: 40px; }
-        .count-box { background: rgba(30, 41, 59, 0.7); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 15px 10px; min-width: 80px; text-align: center; }
-        .count-num { font-family: var(--font-head); font-size: 1.8rem; color: #fff; display: block; line-height: 1; }
-        .count-label { font-size: 10px; text-transform: uppercase; color: var(--accent-gold); }
+        .countdown { display: flex; gap: 15px; margin: 30px 0; }
+        .count-box { background: var(--navy-surface); border: 1px solid var(--navy-accent); border-radius: 12px; padding: 15px; min-width: 90px; }
+        .count-num { display: block; font-family: var(--font-head); font-size: 2rem; color: #fff; }
+        .count-label { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; }
 
-        /* --- SECTION STYLING --- */
-        section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #1e293b; }
+        /* --- SECTION GENERIC --- */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-tag { font-family: var(--font-head); color: var(--gold); font-size: 0.8rem; letter-spacing: 4px; display: block; margin-bottom: 10px; text-align: center; }
+        .section-title { font-family: var(--font-head); font-size: 2rem; text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+
+        /* --- INTERACTIVE TABS --- */
+        .tabs-container { background: var(--navy-surface); border-radius: 24px; border: 1px solid var(--navy-accent); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .tab-nav { display: flex; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--navy-accent); overflow-x: auto; }
+        .tab-btn { flex: 1; padding: 20px; border: none; background: none; color: var(--text-dim); font-family: var(--font-body); font-weight: 600; cursor: pointer; transition: 0.3s; white-space: nowrap; font-size: 1rem; }
+        .tab-btn.active { color: var(--gold); background: rgba(251, 191, 36, 0.05); position: relative; }
+        .tab-btn.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--gold); }
         
-        /* หัวข้อธีมพิเศษ */
-        .thematic-title { font-family: var(--font-head); font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 30px; text-align: center; text-transform: uppercase; position: relative; }
-        .thematic-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent-gold); margin: 10px auto; }
+        .tab-content { padding: 40px; display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
+        
+        .rule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .rule-card { background: var(--navy-accent); padding: 20px; border-radius: 15px; text-align: center; }
+        .rule-val { display: block; font-family: var(--font-head); font-size: 1.5rem; color: var(--gold); margin-bottom: 5px; }
 
-        /* --- INFO CARDS --- */
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .info-card { background: var(--bg-card); padding: 25px; border-radius: 15px; border: 1px solid #1e293b; text-align: center; }
-        .info-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 15px; }
+        /* --- TEAMS --- */
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .team-card { background: var(--navy-surface); padding: 40px 20px; border-radius: 20px; text-align: center; border: 1px solid var(--navy-accent); transition: 0.3s; }
+        .team-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .team-card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
 
-        /* --- RULES & DURATION --- */
-        .rules-box { background: rgba(251, 191, 36, 0.05); border: 1px solid var(--accent-gold); border-radius: 15px; padding: 20px; margin-top: 20px; }
-        .rule-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .rule-item:last-child { border: none; }
+        /* --- SCHEDULE --- */
+        .match-card { background: var(--navy-surface); padding: 25px; border-radius: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid var(--navy-accent); }
+        .match-card.active { border-left-color: var(--gold); }
+        .match-teams { font-family: var(--font-head); font-size: 1.1rem; }
+        .match-vs { color: var(--gold); margin: 0 10px; }
 
-        /* --- MATCH LIST --- */
-        .match-row { background: var(--bg-card); padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid var(--accent-gold); }
-        .match-teams { font-family: var(--font-head); font-size: 1.1rem; display: block; margin-top: 5px; color: var(--accent-gold); }
-        .match-status { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; }
+        /* --- SUPPORT SECTION (เลื่อนมาเจอ) --- */
+        .support-hero { background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border: 2px solid var(--gold); border-radius: 30px; padding: 60px 20px; text-align: center; margin-top: 50px; }
+        .pp-number { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); color: var(--gold); display: block; margin: 20px 0; text-shadow: 0 0 20px var(--gold-glow); letter-spacing: 2px; }
+        .qr-frame { background: #fff; padding: 20px; border-radius: 20px; display: inline-block; margin-top: 30px; }
+        .qr-frame img { width: 250px; height: auto; display: block; }
 
-        /* --- SUPPORT / PROMPTPAY (เด่นชัดบนมือถือ) --- */
-        .support-container { background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border: 2px solid var(--accent-gold); border-radius: 25px; padding: 40px 20px; text-align: center; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
-        .pp-number { 
-            font-family: var(--font-head); font-size: clamp(1.8rem, 8vw, 3.5rem); 
-            color: var(--accent-gold); display: block; margin: 15px 0; 
-            text-shadow: 0 0 15px rgba(251, 191, 36, 0.6); letter-spacing: 1px;
+        /* --- STICKY BOTTOM BAR --- */
+        .sticky-bar {
+            position: fixed; bottom: 0; width: 100%; z-index: 999;
+            background: var(--gold); color: #000; padding: 12px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 700; box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+            transform: translateY(100%); transition: 0.5s ease;
         }
-        .qr-box { background: #fff; padding: 15px; border-radius: 15px; display: inline-block; margin-top: 20px; }
-        .qr-box img { width: 220px; height: auto; display: block; }
+        .sticky-bar.visible { transform: translateY(0); }
+        .sticky-btn { background: #000; color: var(--gold); padding: 8px 20px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 40px; color: #64748b; font-size: 13px; }
+        /* --- ANIMATION --- */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ปุ่มนำทางสนาม */
-        .btn-nav { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-gold); color: #000; padding: 15px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-top: 15px; width: 100%; justify-content: center; }
-
-        @media (max-width: 480px) {
-            .countdown-row { gap: 5px; }
-            .count-box { min-width: 70px; padding: 10px 5px; }
-            .count-num { font-size: 1.5rem; }
-            h1 { font-size: 1.5rem; }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .team-grid { grid-template-columns: 1fr; }
+            .match-card { flex-direction: column; text-align: center; gap: 10px; }
+            .tab-btn { padding: 15px; font-size: 0.9rem; }
+            .sticky-bar { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="logo.png" alt="สน.ลำหิน" class="main-logo">
-        <p class="slogan">STRENGTH • UNITY • GLORY</p>
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="logo.png" alt="สน.ลำหิน" onerror="this.style.display='none'">
+            <span>LAMHIN CUP 2026</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#teams">ทีมแข่งขัน</a></li>
+            <li><a href="#rules">ข้อมูลการแข่ง</a></li>
+            <li><a href="#support">สนับสนุน</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <img src="logo.png" alt="โลโก้ สน.ลำหิน" class="hero-logo" onerror="this.style.display='none'">
+        <span class="section-tag">STRENGTH • UNITY • GLORY</span>
         <h1>LAMHIN POLICE<span>CUP 2026</span></h1>
         
-        <div class="countdown-row" id="timer">
-            <div class="count-box"><span class="count-num" id="days">00</span><span class="count-label">Days</span></div>
-            <div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">Hours</span></div>
-            <div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">Mins</span></div>
-            <div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">Secs</span></div>
+        <div class="countdown">
+            <div class="count-box"><span class="count-num" id="d">00</span><span class="count-label">Days</span></div>
+            <div class="count-box"><span class="count-num" id="h">00</span><span class="count-label">Hrs</span></div>
+            <div class="count-box"><span class="count-num" id="m">00</span><span class="count-label">Min</span></div>
+            <div class="count-box"><span class="count-num" id="s">00</span><span class="count-label">Sec</span></div>
         </div>
-        <p style="color: var(--accent-gold); font-weight: 600;">ศุกร์ที่ 22 พฤษภาคม 2569 | 15.00 น.</p>
+        
+        <p class="hero-date">22 MAY 2026 | 15:00 ONWARDS</p>
+        <a href="https://share.google/hFbcayjKVyY41QRmQ" target="_blank" style="color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 10px 25px; border-radius: 50px;">
+            <i class="fa-solid fa-location-dot"></i> สนามฟุตบอล ยูงทอง FC
+        </a>
     </header>
 
-    <section id="arena">
-        <h2 class="thematic-title">สนามแข่งขัน</h2>
-        <div class="info-card">
-            <h3>สนามฟุตบอล ยูงทอง FC</h3>
-            <p style="margin: 10px 0;">สนามฟุตบอล 7 คน มาตรฐานคุณภาพสูง</p>
-            <p style="color: var(--accent-gold); font-weight: 700;"><i class="fa-solid fa-clock"></i> เริ่มแข่งเวลา 15.00 น.</p>
-            <a href="https://share.google/hFbcayjKVyY41QRmQ" target="_blank" class="btn-nav">
-                <i class="fa-solid fa-map-location-dot"></i> นำทางไปสนาม (Google Maps)
-            </a>
-        </div>
-    </section>
-
     <section id="teams">
-        <h2 class="thematic-title">3 สายงานแห่งความแกร่ง</h2>
-        <div class="card-grid">
-            <div class="info-card">
+        <span class="section-tag">THE CONTENDERS</span>
+        <h2 class="section-title">3 สายงานแห่งมหาอำนาจ</h2>
+        <div class="team-grid">
+            <div class="team-card">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <p style="font-weight: 700; color: var(--accent-gold);">TEAM A</p>
-                <p>ฝ่ายงานสอบสวน (The Investigators)</p>
+                <h3>TEAM A</h3>
+                <p style="color: var(--gold);">ฝ่ายงานสอบสวน</p>
+                <p style="font-size: 0.8rem; color: var(--text-dim); mt-2">The Investigators</p>
             </div>
-            <div class="info-card">
+            <div class="team-card">
                 <i class="fa-solid fa-handcuffs"></i>
-                <p style="font-weight: 700; color: var(--accent-gold);">TEAM B</p>
-                <p>ฝ่ายงานสืบสวน + ฝ่ายงานอำนวยการ</p>
+                <h3>TEAM B</h3>
+                <p style="color: var(--gold);">ฝ่ายสืบสวน + อำนวยการ</p>
             </div>
-            <div class="info-card">
+            <div class="team-card">
                 <i class="fa-solid fa-shield-halved"></i>
-                <p style="font-weight: 700; color: var(--accent-gold);">TEAM C</p>
-                <p>ฝ่ายงานปราบปราม + ฝ่ายงานจราจร</p>
+                <h3>TEAM C</h3>
+                <p style="color: var(--gold);">ฝ่ายปราบปราม + จราจร</p>
             </div>
         </div>
     </section>
 
     <section id="rules">
-        <h2 class="thematic-title">กติกาการแข่งขัน</h2>
-        <div class="rules-box">
-            <p style="text-align: center; margin-bottom: 15px; font-weight: 700; color: var(--accent-gold);">ระบบการแข่งขันแบบพบกันหมด</p>
-            <div class="rule-item"><span>ชนะ</span> <span style="color: #4ade80; font-weight: 700;">3 แต้ม</span></div>
-            <div class="rule-item"><span>เสมอ</span> <span style="color: var(--accent-gold); font-weight: 700;">1 แต้ม</span></div>
-            <div class="rule-item"><span>แพ้</span> <span style="color: #f87171; font-weight: 700;">0 แต้ม</span></div>
-            <div class="rule-item" style="margin-top: 10px;"><span>เวลาแข่งขัน</span> <span>ครึ่งละ 15 นาที</span></div>
-            <div class="rule-item"><span>พักครึ่ง / พักเปลี่ยนทีม</span> <span>5 นาที</span></div>
-        </div>
-    </section>
+        <span class="section-tag">TOURNAMENT INFO</span>
+        <h2 class="section-title">ข้อมูลและกติกาการแข่งขัน</h2>
+        
+        <div class="tabs-container">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'tab-points')">การให้คะแนน</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-time')">เวลาแข่งขัน</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-notes')">หมายเหตุสำคัญ</button>
+            </div>
 
-    <section id="schedule">
-        <h2 class="thematic-title">ตารางแข่งขัน</h2>
-        <div class="match-row">
-            <span class="match-status">Match 1 - เปิดสนาม</span>
-            <span class="match-teams">TEAM A VS TEAM B</span>
-        </div>
-        <div class="match-row">
-            <span class="match-status">Match 2 - ต่อเนื่อง</span>
-            <span class="match-teams">TEAM B VS TEAM C</span>
-        </div>
-        <div class="match-row">
-            <span class="match-status">Match 3 - ปิดท้าย</span>
-            <span class="match-teams">TEAM C VS TEAM A</span>
-        </div>
-        <p style="font-size: 0.85rem; color: #94a3b8; text-align: center; font-style: italic; margin-top: 20px;">
-            "ทีม A (สอบสวน) แข่งคู่แรกและได้พัก 1 แมตช์ เพื่อความเท่าเทียมและเสมอภาค"
-        </p>
-    </section>
+            <div id="tab-points" class="tab-content active">
+                <h3 style="margin-bottom: 20px; color: var(--gold);">ระบบเก็บคะแนน (League System)</h3>
+                <div class="rule-grid">
+                    <div class="rule-card"><span class="rule-val" style="color: #4ade80;">3</span><span>แต้มเมื่อชนะ</span></div>
+                    <div class="rule-card"><span class="rule-val">1</span><span>แต้มเมื่อเสมอ</span></div>
+                    <div class="rule-card"><span class="rule-val" style="color: #f87171;">0</span><span>แต้มเมื่อแพ้</span></div>
+                </div>
+                <p style="margin-top: 25px; text-align: center; color: var(--text-dim);">*เพื่อหาผู้ชนะเพียงหนึ่งเดียวจากคะแนนรวมสูงสุด</p>
+            </div>
 
-    <section id="support">
-        <div class="support-container">
-            <h2 class="thematic-title" style="margin-bottom: 10px;">สนับสนุนกิจกรรม</h2>
-            <p style="font-size: 0.9rem;">ร่วมสนับสนุนกองทุนสวัสดิการ สน.ลำหิน</p>
-            
-            <span class="pp-number">061 287 8990</span>
-            
-            <p style="font-size: 1.2rem; font-weight: 700;">นาย จิรายุส ครองยุติ</p>
-            
-            <div class="qr-box">
-                <img src="qr-code.png" alt="PromptPay QR">
-                <p style="color: #000; font-weight: 800; font-size: 12px; margin-top: 5px;">SCAN TO PAY</p>
+            <div id="tab-time" class="tab-content">
+                <h3 style="margin-bottom: 20px; color: var(--gold);">Duration & Intensity</h3>
+                <div class="rule-grid">
+                    <div class="rule-card"><span class="rule-val">15 MIN</span><span>เวลาแข่งขัน/ครึ่ง</span></div>
+                    <div class="rule-card"><span class="rule-val">5 MIN</span><span>พักครึ่งเวลา</span></div>
+                    <div class="rule-card"><span class="rule-val">5 MIN</span><span>พักเปลี่ยนทีม</span></div>
+                </div>
+                <div style="margin-top: 25px; background: var(--navy-accent); padding: 15px; border-radius: 10px; text-align: center;">
+                    <span style="font-weight: 600;">รวมเวลาปฏิบัติการทั้งสิ้น:</span> 
+                    <span style="color: var(--gold); font-family: var(--font-head); margin-left: 10px;">120 MIN (2 HOURS)</span>
+                </div>
+            </div>
+
+            <div id="tab-notes" class="tab-content">
+                <h3 style="margin-bottom: 15px; color: var(--gold);">ความเท่าเทียมและเสมอภาค</h3>
+                <div style="border-left: 4px solid var(--gold); padding-left: 20px; font-style: italic;">
+                    "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของสภาพร่างกายนักกีฬา"
+                </div>
+                <p style="margin-top: 20px; color: var(--text-dim);">— คณะกรรมการจัดการแข่งขัน สน.ลำหิน —</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <img src="logo.png" alt="สน.ลำหิน" style="height: 50px; opacity: 0.5; margin-bottom: 10px;"><br>
-        © 2026 Lamhin Police Cup Official | สน.ลำหิน 4.0
+    <section id="schedule">
+        <span class="section-tag">MATCH DAY</span>
+        <h2 class="section-title">ตารางการประกบคู่</h2>
+        <div class="match-card active">
+            <span>MATCH 1 : เปิดสนาม</span>
+            <span class="match-teams">TEAM A <span class="match-vs">VS</span> TEAM B</span>
+            <span style="color: var(--gold);">15:00</span>
+        </div>
+        <div class="match-card">
+            <span>MATCH 2 : ต่อเนื่อง</span>
+            <span class="match-teams">TEAM B <span class="match-vs">VS</span> TEAM C</span>
+            <span style="color: var(--text-dim);">--:--</span>
+        </div>
+        <div class="match-card">
+            <span>MATCH 3 : ปิดท้าย</span>
+            <span class="match-teams">TEAM C <span class="match-vs">VS</span> TEAM A</span>
+            <span style="color: var(--text-dim);">--:--</span>
+        </div>
+    </section>
+
+    <section id="support">
+        <div class="support-hero">
+            <span class="section-tag">OFFICIAL SUPPORT</span>
+            <h2 style="font-family: var(--font-head); margin-bottom: 10px;">ร่วมสนับสนุนกองทุนสวัสดิการ</h2>
+            <p style="color: var(--text-dim);">เพื่อเป็นขวัญและกำลังใจให้กับข้าราชการตำรวจ สน.ลำหิน ทุกสายงาน</p>
+            
+            <span class="pp-number">061 287 8990</span>
+            <h3 style="font-size: 1.8rem;">นาย จิรายุส ครองยุติ</h3>
+
+            <div class="qr-frame">
+                <img src="qr-code.png" alt="QR PromptPay" onerror="this.style.display='none'">
+                <p style="color: #000; font-weight: 800; margin-top: 10px; font-size: 0.9rem;">SCAN TO PAY</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sticky-bar" id="stickySupport">
+        <span>🏆 LAMHIN CUP 2026 : ร่วมสนับสนุนนักกีฬา</span>
+        <a href="#support" class="sticky-btn">โอนเงินสวัสดิการ</a>
+    </div>
+
+    <footer style="padding: 60px 20px; text-align: center; border-top: 1px solid var(--navy-accent); color: var(--text-dim);">
+        <p>© 2026 LAMHIN POLICE STATION 4.0 | STRENGTH • UNITY • GLORY</p>
     </footer>
 
     <script>
         // Countdown Timer
         const targetDate = new Date("May 22, 2026 15:00:00").getTime();
-        function updateTimer() {
+        function updateCountdown() {
             const now = new Date().getTime();
             const diff = targetDate - now;
             if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("s").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+        setInterval(updateCountdown, 1000);
+
+        // Tab System
+        function openTab(evt, tabId) {
+            let i, content, btns;
+            content = document.getElementsByClassName("tab-content");
+            for (i = 0; i < content.length; i++) content[i].classList.remove("active");
+            btns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < btns.length; i++) btns[i].classList.remove("active");
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Sticky Bar Visibility
+        window.onscroll = function() {
+            const bar = document.getElementById("stickySupport");
+            const heroHeight = window.innerHeight * 0.5;
+            const supportSection = document.getElementById("support").offsetTop;
+            
+            // แสดงแถบเมื่อเลื่อนลงมาจาก Hero แต่ซ่อนเมื่อถึงส่วน Support ของจริง
+            if (window.pageYOffset > heroHeight && window.pageYOffset < supportSection - 500) {
+                bar.classList.add("visible");
+            } else {
+                bar.classList.remove("visible");
+            }
+        };
     </script>
 </body>
 </html>
