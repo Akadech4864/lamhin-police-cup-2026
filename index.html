@@ -74,23 +74,34 @@
         /* --- STICKY NAVIGATION --- */
         .sticky-nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(15, 37, 87, 0.8);
+            background: rgba(5, 11, 24, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 2px solid var(--police-yellow);
             display: flex; justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .nav-inner { display: flex; width: 100%; max-width: 800px; padding: 0 5px; }
+        .nav-inner { display: flex; width: 100%; max-width: 900px; padding: 0 5px; }
         .nav-link { 
-            flex: 1; text-align: center; padding: 15px 5px; 
+            flex: 1; text-align: center; padding: 18px 5px; 
             color: var(--white); text-decoration: none; 
-            font-size: 0.9rem; font-weight: 500; transition: 0.3s;
+            font-size: 1rem; font-weight: 600; transition: 0.3s;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .nav-link:hover, .nav-link.active { color: var(--police-yellow); }
+        .nav-link:hover, .nav-link.active { 
+            color: var(--police-yellow); 
+            background: rgba(251, 191, 36, 0.1);
+        }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px;
+            background: var(--police-yellow); transition: 0.3s; transform: translateX(-50%);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 80%; }
 
         /* --- SECTIONS --- */
         section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        /* ปรับฟอนต์หัวข้อเซกชันให้เหมือนเพื่อน (Kanit) */
         .section-title { font-size: 1.8rem; color: var(--police-yellow); margin-bottom: 35px; text-align: center; text-transform: uppercase; font-weight: 700; font-family: var(--font-main); }
 
         /* --- TEAM CARDS --- */
@@ -100,120 +111,74 @@
         .card i { font-size: 2.5rem; color: var(--police-yellow); margin-bottom: 15px; }
         .card h3 { color: var(--white); font-weight: 700; margin-bottom: 8px; font-size: 1.4rem; }
 
-        /* --- TABS --- */
-        .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
-        .tab-btn { flex: 1; padding: 16px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; opacity: 0.6; }
-        .tab-btn.active { opacity: 1; color: var(--police-yellow); border-bottom-color: var(--police-yellow); }
-        .tab-content { padding: 30px; display: none; }
-        .tab-content.active { display: block; }
-        
-        .rule-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-
-        /* --- PREMIER LEAGUE STYLE MATCH SCOREBOARD --- */
-        .epl-match-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto;
+        /* --- MATCH DAY (ขยายกล่องและปรับระยะห่างให้สบายตาขึ้น) --- */
+        .epl-match-container { 
+            display: flex; flex-direction: column; 
+            gap: 35px; /* เพิ่มระยะห่างระหว่างแต่ละคู่ */
+            max-width: 950px; /* ขยายความกว้างสูงสุดของกล่อง */
+            margin: 0 auto; 
         }
         .epl-match-card {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 25px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+            padding: 40px 30px; /* เพิ่มพื้นที่ว่างด้านในกล่องให้โปร่งขึ้น */
+            text-align: center; position: relative;
         }
-        .epl-team {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        /* เอาวงกลมล้อมรอบออก ให้เหลือไอคอนเพียวๆ สีเหลืองทองเหมือนด้านบน */
+        .epl-team { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .epl-team-crest {
-            font-size: 2.5rem;
+            font-size: 2.8rem; /* ขยายไอคอนให้สมดุลกับกล่องที่ใหญ่ขึ้น */
             color: var(--police-yellow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .epl-team-name {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-        .epl-vs-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .epl-vs-text {
-            font-family: var(--font-head);
-            font-size: 1rem;
-            color: var(--text-dim);
-            background: rgba(255,255,255,0.05);
-            padding: 4px 12px;
-            border-radius: 4px;
-            border: 1px solid var(--glass-border);
-            margin-bottom: 8px;
-        }
+        .epl-team-name { font-size: 1.2rem; font-weight: 700; color: var(--white); }
+        .epl-vs-block { display: flex; flex-direction: column; align-items: center; padding: 0 40px; /* เพิ่มระยะห่างตรงกลาง */ }
+        .epl-vs-text { font-family: var(--font-head); font-size: 1.2rem; color: var(--text-dim); margin-bottom: 10px; }
         .epl-time-display {
-            font-family: var(--font-head);
-            font-size: 1.1rem;
-            color: var(--police-yellow);
-            font-weight: 700;
-            background: rgba(251, 191, 36, 0.1);
-            padding: 4px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            letter-spacing: 0.5px;
+            font-family: var(--font-head); font-size: 1.3rem; color: var(--police-yellow);
+            font-weight: 800; background: rgba(0,0,0,0.3); padding: 8px 20px;
+            border-radius: 12px; border: 1px solid var(--police-yellow);
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
         }
         .match-badge-tag {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: var(--police-blue-light);
-            color: #fff;
-            font-size: 0.75rem;
-            padding: 3px 12px;
-            border-bottom-right-radius: 10px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            position: absolute; top: 0; left: 20px;
+            background: var(--police-blue-light); color: #fff; font-size: 0.9rem; /* ขยายป้ายสถานะนิดหน่อย */
+            padding: 6px 20px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+            font-weight: 600; text-transform: uppercase;
         }
+
+        /* --- TOURNAMENT INFO TABS --- */
+        .tab-wrapper { margin-top: 20px; }
+        .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
+        .tab-btn { flex: 1; padding: 18px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; opacity: 0.6; font-size: 1.1rem; }
+        .tab-btn.active { opacity: 1; color: var(--police-yellow); border-bottom: 4px solid var(--police-yellow); background: rgba(251, 191, 36, 0.05); }
+        .tab-content { padding: 40px; display: none; }
+        .tab-content.active { display: block; }
+        .rule-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
 
         /* --- SUPPORT SECTION --- */
-        .support-hero { padding: 50px 20px; text-align: center; border: 2px solid var(--police-yellow); box-shadow: 0 0 30px rgba(251, 191, 36, 0.15); }
-        .support-title-text { font-size: 1.15rem; font-weight: 600; color: var(--white); margin-bottom: 15px; }
-        .pp-top { font-size: 0.9rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 2px; }
-        .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--police-yellow); font-weight: 800; display: block; margin: 0 0 15px 0; text-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
-        .qr-box { background: #fff; padding: 15px; border-radius: 20px; display: inline-block; margin-top: 20px; }
-        .qr-box img { width: 220px; height: auto; display: block; border-radius: 5px; }
+        .support-hero { padding: 60px 20px; text-align: center; border: 3px solid var(--police-yellow); box-shadow: 0 0 40px rgba(251, 191, 36, 0.2); }
+        .support-title-text { font-size: 1.3rem; font-weight: 700; color: var(--police-yellow); margin-bottom: 20px; text-transform: uppercase; }
+        .pp-top { font-size: 1rem; color: var(--white); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .pp-number { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--police-yellow); font-weight: 800; display: block; margin: 10px 0; text-shadow: 0 0 25px rgba(251, 191, 36, 0.6); }
+        .qr-box { background: #fff; padding: 20px; border-radius: 25px; display: inline-block; margin-top: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+        .qr-box img { width: 250px; height: auto; display: block; border-radius: 10px; }
 
-        /* --- STICKY BOTTOM BAR --- */
+        /* --- STICKY FOOTER --- */
         .sticky-footer {
             position: fixed; bottom: 0; width: 100%; z-index: 1001;
-            background: rgba(251, 191, 36, 0.9);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            color: #000; padding: 12px 5%;
+            background: rgba(251, 191, 36, 0.95);
+            backdrop-filter: blur(15px); color: #000; padding: 14px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            font-weight: 800; box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
-            transform: translateY(100%); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 800; transform: translateY(100%); transition: 0.5s;
         }
         .sticky-footer.show { transform: translateY(0); }
-        .sticky-btn { background: #0f2557; color: var(--police-yellow); padding: 8px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; }
+        .sticky-btn { background: #050b18; color: var(--police-yellow); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 60px 20px 120px; opacity: 0.5; font-size: 0.8rem; }
+        footer { text-align: center; padding: 80px 20px 140px; opacity: 0.4; font-size: 0.9rem; }
 
-        @media (max-width: 600px) {
-            .epl-match-card { grid-template-columns: 1fr; gap: 15px; padding-top: 35px; }
-            .epl-vs-block { order: 2; }
+        @media (max-width: 768px) {
+            /* ปรับระยะบนมือถือให้ยังคงดูโปร่งสบาย */
+            .epl-match-card { grid-template-columns: 1fr; gap: 20px; padding: 50px 20px 30px 20px; }
+            .epl-vs-block { order: 2; padding: 10px 0; }
             .epl-team:nth-child(3) { order: 3; }
             .nav-link { font-size: 0.8rem; padding: 15px 2px; }
         }
@@ -221,16 +186,15 @@
 </head>
 <body>
 
-    <header>
+    <header id="home">
         <img src="logo.png" alt="สน.ลำหิน" class="main-logo" onerror="this.style.display='none'">
         <h1>LAMHIN POLICE<span>CUP 2026</span></h1>
         <p class="slogan">STRENGTH • UNITY • GLORY</p>
         <div class="hero-info">วันศุกร์ที่ 22 พฤษภาคม 2569 | 15.00 น.</div>
     </header>
 
-    <div class="arena-intro" id="arena">
+    <div class="arena-intro">
         <h2>สนามฟุตบอล ยูงทอง FC</h2>
-        <p>มาตรฐานระดับสูง ลำหิน</p>
         <a href="https://maps.app.goo.gl/uutjC6h8WFT9wkh69" target="_blank" class="btn-nav">
             <i class="fa-solid fa-location-arrow"></i> นำทางผ่าน Google Maps
         </a>
@@ -238,9 +202,9 @@
 
     <nav class="sticky-nav">
         <div class="nav-inner">
-            <a href="#teams" class="nav-link">ทีมแข่งขัน</a>
-            <a href="#schedule" class="nav-link">ตารางแข่ง</a>
-            <a href="#rules" class="nav-link">กติกา/เวลา</a>
+            <a href="#teams" class="nav-link">สายงาน</a>
+            <a href="#schedule" class="nav-link">MATCH DAY</a>
+            <a href="#rules" class="nav-link">กติกา</a>
             <a href="#support" class="nav-link">สนับสนุน</a>
         </div>
     </nav>
@@ -252,19 +216,16 @@
                 <i class="fa-solid fa-scale-balanced"></i>
                 <h3>TEAM A</h3>
                 <p>ฝ่ายงานสอบสวน</p>
-                <small style="opacity: 0.6;">1 ทีมเต็ม</small>
             </div>
             <div class="card glass">
                 <i class="fa-solid fa-handcuffs"></i>
                 <h3>TEAM B</h3>
                 <p>ฝ่ายสืบสวน + จราจร + ธุรการ</p>
-                <small style="opacity: 0.6;">1 ทีมร่วมปฏิบัติการ</small>
             </div>
             <div class="card glass">
                 <i class="fa-solid fa-shield-halved"></i>
                 <h3>TEAM C</h3>
                 <p>ฝ่ายงานป้องกันปราบปราม</p>
-                <small style="opacity: 0.6;">1 ทีมเต็ม</small>
             </div>
         </div>
     </section>
@@ -274,14 +235,14 @@
         <div class="epl-match-container">
             
             <div class="epl-match-card glass">
-                <div class="match-badge-tag" style="background: var(--police-blue-light);">Match 1 - เปิดสนาม</div>
+                <div class="match-badge-tag">Match 1 - เปิดสนาม</div>
                 <div class="epl-team">
                     <div class="epl-team-crest"><i class="fa-solid fa-scale-balanced"></i></div>
                     <span class="epl-team-name">ฝ่ายงานสอบสวน</span>
                 </div>
                 <div class="epl-vs-block">
                     <span class="epl-vs-text">VS</span>
-                    <span class="epl-time-display" id="time-m1">15:00 น.</span>
+                    <span class="epl-time-display">15:00 น.</span>
                 </div>
                 <div class="epl-team">
                     <div class="epl-team-crest"><i class="fa-solid fa-handcuffs"></i></div>
@@ -297,7 +258,7 @@
                 </div>
                 <div class="epl-vs-block">
                     <span class="epl-vs-text">VS</span>
-                    <span class="epl-time-display" id="time-m2">15:40 น.</span>
+                    <span class="epl-time-display">15:40 น.</span>
                 </div>
                 <div class="epl-team">
                     <div class="epl-team-crest"><i class="fa-solid fa-shield-halved"></i></div>
@@ -313,7 +274,7 @@
                 </div>
                 <div class="epl-vs-block">
                     <span class="epl-vs-text">VS</span>
-                    <span class="epl-time-display" id="time-m3">16:20 น.</span>
+                    <span class="epl-time-display">16:20 น.</span>
                 </div>
                 <div class="epl-team">
                     <div class="epl-team-crest"><i class="fa-solid fa-scale-balanced"></i></div>
@@ -334,24 +295,24 @@
             </div>
 
             <div id="t1" class="tab-content active">
-                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:var(--police-yellow);">+3 แต้ม</span></div>
-                <div class="rule-row"><span>เสมอ (Draw)</span><span>+1 แต้ม</span></div>
-                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#ef4444;">0 แต้ม</span></div>
-                <p style="margin-top:15px; opacity:0.6; font-size:0.85rem; text-align: center;">*ระบบทัวร์นาเมนต์แบบพบกันหมด (League Format)</p>
+                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:var(--police-yellow); font-weight: 700;">+3 แต้ม</span></div>
+                <div class="rule-row"><span>เสมอ (Draw)</span><span style="font-weight: 700;">+1 แต้ม</span></div>
+                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#ef4444; font-weight: 700;">0 แต้ม</span></div>
+                <p style="margin-top:20px; opacity:0.6; text-align: center;">*ระบบทัวร์นาเมนต์แบบพบกันหมด (League Format)</p>
             </div>
 
             <div id="t2" class="tab-content">
-                <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที (แข่งขัน 2 ครึ่ง)</span></div>
+                <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที (แข่ง 2 ครึ่ง)</span></div>
                 <div class="rule-row"><span>เวลาพักครึ่ง</span><span>5 นาที</span></div>
                 <div class="rule-row"><span>พักเปลี่ยนทีม</span><span>5 นาที</span></div>
-                <div class="rule-row" style="border:none; margin-top:10px; font-weight:800; color:var(--police-yellow);">
-                    <span>รวมเวลาจัดกิจกรรมทั้งสิ้น</span><span>120 นาที (2 ชม.)</span>
+                <div class="rule-row" style="border:none; margin-top:15px; font-weight:800; color:var(--police-yellow);">
+                    <span>รวมเวลาทั้งสิ้น</span><span>120 นาที (2 ชม.)</span>
                 </div>
             </div>
 
             <div id="t3" class="tab-content">
                 <p style="font-style: italic; border-left: 4px solid var(--police-yellow); padding-left: 15px; opacity: 0.9;">
-                    "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของสภาพร่างกายนักกีฬาในการสลับเข้าเวรและลงสนาม"
+                    "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของนักกีฬา"
                 </p>
             </div>
         </div>
@@ -363,22 +324,22 @@
             <span class="pp-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
             
-            <h3 style="font-size:1.5rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
+            <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
             
             <div class="qr-box">
                 <img src="qr-code.png" alt="QR" onerror="this.style.display='none'">
-                <p style="color:#000; font-weight:900; font-size:0.7rem; margin-top:5px; text-transform:uppercase;">Scan to Support</p>
+                <p style="color:#000; font-weight:900; font-size:0.8rem; margin-top:8px; text-transform:uppercase;">Scan to Support</p>
             </div>
         </div>
     </section>
 
     <div class="sticky-footer" id="bottomBar">
-        <span>🏆 ร่วมสนับสนุนการแข่งขัน</span>
+        <span>🏆 สนับสนุนการแข่งขัน สน.ลำหิน</span>
         <a href="#support" class="sticky-btn">โอนเงิน</a>
     </div>
 
     <footer>
-        <img src="logo.png" alt="สน.ลำหิน" style="height:45px; margin-bottom:15px; opacity:0.3;" onerror="this.style.display='none'">
+        <img src="logo.png" alt="สน.ลำหิน" style="height:50px; margin-bottom:20px; opacity:0.3;" onerror="this.style.display='none'">
         <p>© 2026 LAMHIN POLICE STATION 4.0 | OFFICIAL SITE</p>
     </footer>
 
