@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAMHIN POLICE CUP 2026</title>
+    <title>LAMHIN POLICE CUP 2026 | PREMIER LEAGUE STYLE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Krona+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --bg-deep: #020617;
-            --bg-surface: #0f172a;
-            --bg-accent: #1e293b;
-            --gold: #fbbf24;
-            --gold-glow: rgba(251, 191, 36, 0.3);
-            --white: #f8fafc;
+            /* EPL Color Palette */
+            --epl-purple: #38003c;
+            --epl-mint: #00ff85;
+            --epl-pink: #ff005a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --white: #ffffff;
             --font-main: 'Kanit', sans-serif;
             --font-head: 'Krona One', sans-serif;
         }
@@ -24,98 +25,118 @@
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-deep);
+            /* พื้นหลังสีเดียวกันทั้งหน้า แบบไล่เฉดหรูๆ สไตล์ EPL */
+            background: linear-gradient(135deg, #020617 0%, #38003c 50%, #1e1b4b 100%);
+            background-attachment: fixed;
             color: var(--white);
             font-family: var(--font-main);
-            line-height: 1.5;
+            line-height: 1.4;
             overflow-x: hidden;
+        }
+
+        /* --- GLASS MORPHISM COMMON CLASS --- */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
         }
 
         /* --- HERO SECTION --- */
         header {
-            padding: 50px 20px 20px 20px;
+            padding: 60px 20px 0;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.2) 0%, var(--bg-deep) 80%);
         }
-        .main-logo { width: 130px; margin-bottom: 15px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+        .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0, 255, 133, 0.3)); }
         
-        h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; }
-        h1 span { color: var(--gold); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); text-shadow: 0 0 20px var(--gold-glow); }
-        .slogan { font-size: 14px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-top: 10px; }
+        h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; }
+        h1 span { color: var(--epl-mint); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); }
+        .slogan { font-size: 14px; letter-spacing: 5px; color: var(--epl-mint); text-transform: uppercase; margin-top: 10px; font-weight: 600; opacity: 0.9; }
 
-        .hero-info { margin-top: 20px; font-weight: 600; color: var(--gold); font-size: 1.2rem; }
+        .hero-info { margin-top: 25px; font-weight: 700; color: var(--white); font-size: 1.3rem; }
 
-        /* --- ARENA INFO --- */
-        .arena-intro { padding: 10px 20px 30px 20px; text-align: center; background: transparent; }
-        .arena-intro h2 { font-size: 1.6rem; margin-bottom: 5px; color: var(--white); font-weight: 700; }
-        .arena-intro p { color: #94a3b8; font-size: 1rem; }
-        .btn-nav { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #000; padding: 10px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-top: 15px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2); }
+        /* --- ARENA INFO (ติดกับวันที่) --- */
+        .arena-intro { padding: 10px 20px 40px; text-align: center; }
+        .arena-intro h2 { font-size: 1.6rem; color: var(--epl-mint); font-weight: 700; margin-bottom: 5px; }
+        .arena-intro p { color: var(--white); opacity: 0.8; font-size: 1rem; }
+        
+        .btn-nav { 
+            display: inline-flex; align-items: center; gap: 10px; 
+            background: var(--epl-mint); color: #000; padding: 12px 30px; 
+            border-radius: 50px; font-weight: 700; text-decoration: none; 
+            margin-top: 20px; transition: 0.3s; box-shadow: 0 0 20px rgba(0, 255, 133, 0.4);
+        }
+        .btn-nav:hover { transform: scale(1.05); background: #fff; }
 
-        /* --- STICKY NAVIGATION --- */
+        /* --- STICKY NAVIGATION (Glass Morph) --- */
         .sticky-nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--bg-accent);
+            background: rgba(56, 0, 60, 0.6); /* EPL Purple base */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
             display: flex; justify-content: center;
         }
-        .nav-inner { display: flex; overflow-x: auto; width: 100%; max-width: 800px; padding: 0 5px; }
+        .nav-inner { display: flex; width: 100%; max-width: 800px; padding: 0 5px; }
         .nav-link { 
-            flex: 1; text-align: center; padding: 14px 10px; 
-            color: var(--white); text-decoration: none; white-space: nowrap;
-            font-size: 0.95rem; font-weight: 500; transition: 0.3s;
+            flex: 1; text-align: center; padding: 15px 5px; 
+            color: var(--white); text-decoration: none; 
+            font-size: 0.9rem; font-weight: 500; transition: 0.3s;
         }
-        .nav-link:hover { color: var(--gold); }
+        .nav-link:hover { color: var(--epl-mint); }
 
         /* --- SECTIONS --- */
-        section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--bg-accent); }
-        .section-title { font-size: 1.5rem; color: var(--gold); margin-bottom: 25px; text-align: center; text-transform: uppercase; font-weight: 700; }
+        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 1.8rem; color: var(--epl-mint); margin-bottom: 35px; text-align: center; text-transform: uppercase; font-weight: 800; }
 
-        /* --- TEAM CARDS --- */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--bg-surface); padding: 25px 20px; border-radius: 15px; border: 1px solid var(--bg-accent); text-align: center; }
-        .card i { font-size: 2.2rem; color: var(--gold); margin-bottom: 12px; }
-        .card h3 { color: var(--gold); margin-bottom: 8px; font-size: 1.25rem; }
+        /* --- TEAM CARDS (Glass) --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { padding: 35px 20px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--epl-mint); background: rgba(255, 255, 255, 0.08); }
+        .card i { font-size: 2.5rem; color: var(--epl-mint); margin-bottom: 15px; }
+        .card h3 { color: var(--white); font-weight: 700; margin-bottom: 8px; font-size: 1.4rem; }
 
-        /* --- TAB SYSTEM --- */
-        .tab-wrapper { background: var(--bg-surface); border-radius: 20px; border: 1px solid var(--bg-accent); overflow: hidden; }
-        .tab-menu { display: flex; background: rgba(0,0,0,0.2); }
-        .tab-btn { flex: 1; padding: 14px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; font-size: 0.95rem; }
-        .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(251, 191, 36, 0.05); }
-        .tab-content { padding: 25px; display: none; }
+        /* --- TABS (Glass) --- */
+        .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
+        .tab-btn { flex: 1; padding: 16px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; opacity: 0.6; }
+        .tab-btn.active { opacity: 1; color: var(--epl-mint); border-bottom-color: var(--epl-mint); }
+        .tab-content { padding: 30px; display: none; }
         .tab-content.active { display: block; }
         
-        .rule-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .rule-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* --- MATCH LIST --- */
-        .match-card { background: var(--bg-surface); padding: 18px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid var(--gold); display: flex; justify-content: space-between; align-items: center; }
-        .match-card span:last-child { font-weight: 700; color: var(--gold); }
+        /* --- MATCH LIST (Glass) --- */
+        .match-card { padding: 20px; margin-bottom: 15px; border-left: 6px solid var(--epl-mint); display: flex; justify-content: space-between; align-items: center; }
+        .match-card span:last-child { font-weight: 800; color: var(--epl-mint); font-family: var(--font-head); font-size: 0.9rem; }
 
-        /* --- SUPPORT SECTION --- */
-        .support-hero { background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border: 2px solid var(--gold); border-radius: 30px; padding: 45px 20px; text-align: center; margin-bottom: 20px; }
-        .pp-label-top { font-size: 0.95rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; display: block; font-weight: 500; }
-        .pp-number { font-size: clamp(2rem, 9vw, 3.8rem); color: var(--gold); font-weight: 700; display: block; margin: 5px 0 15px 0; text-shadow: 0 0 15px var(--gold-glow); letter-spacing: 1px; }
-        .qr-box { background: #fff; padding: 15px; border-radius: 15px; display: inline-block; margin-top: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .qr-box img { width: 200px; height: auto; display: block; border-radius: 4px; }
+        /* --- SUPPORT SECTION (Glass) --- */
+        .support-hero { padding: 50px 20px; text-align: center; border: 2px solid var(--epl-mint); box-shadow: 0 0 30px rgba(0, 255, 133, 0.1); }
+        .pp-top { font-size: 0.85rem; color: var(--epl-mint); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--white); font-weight: 800; display: block; margin: 5px 0 10px; text-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        .qr-box { background: #fff; padding: 15px; border-radius: 20px; display: inline-block; margin-top: 20px; }
+        .qr-box img { width: 220px; height: auto; display: block; border-radius: 5px; }
 
-        /* --- STICKY BOTTOM BAR --- */
+        /* --- STICKY BOTTOM BAR (Glass Morph) --- */
         .sticky-footer {
             position: fixed; bottom: 0; width: 100%; z-index: 1001;
-            background: var(--gold); color: #000; padding: 10px 5%;
+            background: rgba(0, 255, 133, 0.85); /* Mint Green base */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: #000; padding: 12px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            font-weight: 700; box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
-            transform: translateY(100%); transition: 0.4s ease;
+            font-weight: 800; box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
+            transform: translateY(100%); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .sticky-footer.show { transform: translateY(0); }
-        .sticky-btn { background: #000; color: var(--gold); padding: 6px 20px; border-radius: 50px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sticky-btn { background: #38003c; color: var(--epl-mint); padding: 8px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 40px 20px 100px; color: #64748b; font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px 20px 120px; opacity: 0.5; font-size: 0.8rem; }
 
         @media (max-width: 600px) {
-            .match-card { flex-direction: column; text-align: center; gap: 8px; }
-            .nav-link { font-size: 0.85rem; padding: 12px 6px; }
-            section { padding: 35px 15px; }
+            .match-card { flex-direction: column; text-align: center; gap: 10px; }
+            .nav-link { font-size: 0.8rem; padding: 15px 2px; }
         }
     </style>
 </head>
@@ -130,9 +151,9 @@
 
     <div class="arena-intro" id="arena">
         <h2>สนามฟุตบอล ยูงทอง FC</h2>
-        <p>สนามฟุตบอล 7 คน มาตรฐานคุณภาพสูง ลำหิน</p>
+        <p>มาตรฐานระดับสูง ลำหิน</p>
         <a href="https://maps.app.goo.gl/uutjC6h8WFT9wkh69" target="_blank" class="btn-nav">
-            <i class="fa-solid fa-location-arrow"></i> นำทางไปสนาม
+            <i class="fa-solid fa-location-arrow"></i> นำทางผ่าน Google Maps
         </a>
     </div>
 
@@ -141,105 +162,103 @@
             <a href="#teams" class="nav-link">ทีมแข่งขัน</a>
             <a href="#rules" class="nav-link">กติกา/เวลา</a>
             <a href="#schedule" class="nav-link">ตารางแข่ง</a>
-            <a href="#support" class="nav-link">การสนับสนุน</a>
+            <a href="#support" class="nav-link">สนับสนุน</a>
         </div>
     </nav>
 
     <section id="teams">
         <h2 class="section-title">3 สายงานแห่งความแกร่ง</h2>
         <div class="grid-3">
-            <div class="card">
+            <div class="card glass">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <h3>TEAM A</h3>
-                <p>ฝ่ายงานสอบสวน (The Investigators)</p>
+                <p>ฝ่ายงานสอบสวน</p>
+                <small style="opacity: 0.6;">The Investigators</small>
             </div>
-            <div class="card">
+            <div class="card glass">
                 <i class="fa-solid fa-handcuffs"></i>
                 <h3>TEAM B</h3>
-                <p>ฝ่ายงานสืบสวน + อำนวยการ</p>
+                <p>ฝ่ายสืบสวน + อำนวยการ</p>
             </div>
-            <div class="card">
+            <div class="card glass">
                 <i class="fa-solid fa-shield-halved"></i>
                 <h3>TEAM C</h3>
-                <p>ฝ่ายงานปราบปราม + จราจร</p>
+                <p>ฝ่ายปราบปราม + จราจร</p>
             </div>
         </div>
     </section>
 
     <section id="rules">
-        <h2 class="section-title">ข้อมูลการแข่งขัน</h2>
-        <div class="tab-wrapper">
+        <h2 class="section-title">Tournament Info</h2>
+        <div class="tab-wrapper glass">
             <div class="tab-menu">
-                <button class="tab-btn active" onclick="openTab(event, 'tab1')">การให้คะแนน</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab2')">เวลาการแข่ง</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">หมายเหตุ</button>
+                <button class="tab-btn active" onclick="openTab(event, 't1')">การให้คะแนน</button>
+                <button class="tab-btn" onclick="openTab(event, 't2')">เวลาการแข่ง</button>
+                <button class="tab-btn" onclick="openTab(event, 't3')">หมายเหตุ</button>
             </div>
 
-            <div id="tab1" class="tab-content active">
-                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:#4ade80; font-weight:600;">+3 แต้ม</span></div>
-                <div class="rule-row"><span>เสมอ (Draw)</span><span style="color:#fbbf24; font-weight:600;">+1 แต้ม</span></div>
-                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#f87171; font-weight:600;">0 แต้ม</span></div>
-                <p style="margin-top:15px; color:#94a3b8; font-size:0.9rem;">*ตัดสินหาผู้ชนะจากคะแนนรวมสูงสุดในระบบ League</p>
+            <div id="t1" class="tab-content active">
+                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:var(--epl-mint);">+3 แต้ม</span></div>
+                <div class="rule-row"><span>เสมอ (Draw)</span><span>+1 แต้ม</span></div>
+                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:var(--epl-pink);">0 แต้ม</span></div>
+                <p style="margin-top:15px; opacity:0.6; font-size:0.85rem; text-align: center;">*เพื่อเฟ้นหาหนึ่งมหาอำนาจฟุตบอล สน.ลำหิน</p>
             </div>
 
-            <div id="tab2" class="tab-content">
+            <div id="t2" class="tab-content">
                 <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที</span></div>
                 <div class="rule-row"><span>เวลาพักครึ่ง</span><span>5 นาที</span></div>
                 <div class="rule-row"><span>พักเปลี่ยนทีม</span><span>5 นาที</span></div>
-                <div class="rule-row" style="border:none; margin-top:10px; font-weight:700; color:var(--gold);">
+                <div class="rule-row" style="border:none; margin-top:10px; font-weight:800; color:var(--epl-mint);">
                     <span>รวมเวลาทั้งสิ้น</span><span>120 นาที (2 ชม.)</span>
                 </div>
             </div>
 
-            <div id="tab3" class="tab-content">
-                <p style="font-style: italic; border-left: 3px solid var(--gold); padding-left: 15px; color: #cbd5e1;">
-                    "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของนักกีฬา"
+            <div id="t3" class="tab-content">
+                <p style="font-style: italic; border-left: 4px solid var(--epl-mint); padding-left: 15px; opacity: 0.9;">
+                    "เนื่องจากทีม A อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของนักกีฬา"
                 </p>
             </div>
         </div>
     </section>
 
     <section id="schedule">
-        <h2 class="section-title">ตารางการประกบคู่</h2>
-        <div class="match-card">
+        <h2 class="section-title">MATCH DAY</h2>
+        <div class="match-card glass">
             <span>แมตช์ 1 : เปิดสนาม</span>
-            <span>TEAM A VS TEAM B</span>
+            <span>TEAM A <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM B</span>
         </div>
-        <div class="match-card">
+        <div class="match-card glass">
             <span>แมตช์ 2 : ต่อเนื่อง</span>
-            <span>TEAM B VS TEAM C</span>
+            <span>TEAM B <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM C</span>
         </div>
-        <div class="match-card">
+        <div class="match-card glass">
             <span>แมตช์ 3 : ปิดท้าย</span>
-            <span>TEAM C VS TEAM A</span>
+            <span>TEAM C <i class="fa-solid fa-bolt" style="color:var(--epl-mint); margin:0 5px;"></i> TEAM A</span>
         </div>
     </section>
 
     <section id="support">
-        <div class="support-hero">
-            <h2 class="section-title" style="margin-bottom:8px; color: var(--white);">ร่วมสนับสนุนการแข่งขัน</h2>
-            <p style="font-size:0.9rem; color:#94a3b8; margin-bottom: 20px;">กองทุนสวัสดิการ เพื่อขวัญและกำลังใจนักกีฬา สน.ลำหิน</p>
-            
-            <span class="pp-label-top">Prompt Pay</span>
+        <div class="support-hero glass">
+            <span class="pp-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
+            <h3 style="font-size:1.5rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
+            <p style="margin-top:10px; opacity: 0.7; font-size: 0.9rem;">ร่วมสนับสนุนกองทุนสวัสดิการข้าราชการตำรวจ สน.ลำหิน</p>
             
-            <p style="font-size:1.4rem; font-weight:700; color: var(--white);">นาย จิรายุส ครองยุติ</p>
-
             <div class="qr-box">
-                <img src="qr-code.png" alt="QR PromptPay" onerror="this.style.display='none'">
-                <p style="color:#000; font-weight:800; font-size:0.7rem; margin-top:5px; text-transform: uppercase; letter-spacing: 0.5px;">Scan To Pay</p>
+                <img src="qr-code.png" alt="QR" onerror="this.style.display='none'">
+                <p style="color:#000; font-weight:900; font-size:0.7rem; margin-top:5px; text-transform:uppercase;">Scan to Support</p>
             </div>
         </div>
     </section>
 
     <div class="sticky-footer" id="bottomBar">
-        <span>🏆 ร่วมสนับสนุนการแข่งขัน</span>
+        <span>🏆 LAMHIN POLICE CUP 2026</span>
         <a href="#support" class="sticky-btn">โอนเงิน</a>
     </div>
 
     <footer>
-        <img src="logo.png" alt="สน.ลำหิน" style="height:50px; opacity:0.3; margin-bottom:15px;" onerror="this.style.display='none'">
-        <p>© 2026 LAMHIN POLICE STATION 4.0</p>
+        <img src="logo.png" alt="สน.ลำหิน" style="height:45px; margin-bottom:15px; opacity:0.3;" onerror="this.style.display='none'">
+        <p>© 2026 LAMHIN POLICE STATION 4.0 | OFFICIAL SITE</p>
     </footer>
 
     <script>
@@ -254,12 +273,12 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Sticky Bottom Bar logic
+        // Sticky Bottom Bar
         window.onscroll = function() {
             var bar = document.getElementById("bottomBar");
             var supportSection = document.getElementById("support").offsetTop;
             
-            if (window.pageYOffset > 400 && window.pageYOffset < supportSection - 400) {
+            if (window.pageYOffset > 500 && window.pageYOffset < supportSection - 400) {
                 bar.classList.add("show");
             } else {
                 bar.classList.remove("show");
