@@ -192,6 +192,15 @@
             margin-top: 15px;
         }
 
+        /* ตกแต่งรูปภาพ QR ให้ขอบมนเล็กน้อยและมีเงา */
+        .pp-qr img {
+            max-width: 250px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -206,6 +215,7 @@
             h1 { font-size: 2rem; }
             .pp-number { font-size: 2.2rem; }
             .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .pp-qr img { max-width: 180px; }
         }
     </style>
 </head>
@@ -280,7 +290,7 @@
             <p style="font-size: 1.5rem; font-weight: 700;">นาย จิรายุส ครองยุติ</p>
             
             <div class="pp-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020101021130370016A0000006770101110113006606128789905802TH53037646304" alt="QR PromptPay 0612878990">
+                <img src="image_729dc0.png" alt="QR PromptPay 0612878990">
                 <p style="color: #000; font-weight: 800; font-size: 0.7rem; margin-top: 5px;">SCAN TO PAY</p>
             </div>
         </div>
