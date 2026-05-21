@@ -3,276 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAMHIN POLICE CUP 2026 | Official Site</title>
+    <title>LAMHIN POLICE CUP 2026 - Official Landing Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;600;700&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* --- CORE DESIGN SYSTEM --- */
         :root {
-            --navy: #020617;
-            --navy-light: #0f172a;
-            --gold: #fbbf24;
-            --gold-dark: #b45309;
-            --slate: #1e293b;
-            --white: #f8fafc;
+            --bg-main: #070b12;
+            --bg-card: #0f1626;
+            --bg-card-hover: #1e293b;
+            --accent-gold: #fbbf24;
+            --accent-blue: #3b82f6;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
         body {
-            background-color: var(--navy);
-            color: var(--white);
-            font-family: 'Anuphan', sans-serif;
-            line-height: 1.4;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            font-family: 'Kanit', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* --- NAVIGATION --- */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Navigation Bar */
         nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(2, 6, 23, 0.95);
-            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(7, 11, 18, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            padding: 10px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--slate);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .nav-logo img { height: 40px; }
-        .nav-logo span { font-family: 'Krona One', sans-serif; color: var(--gold); font-size: 1.1rem; }
 
-        /* --- HERO SECTION --- */
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 35px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
         header {
-            min-height: 90vh;
-            padding: 100px 20px 40px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 5% 60px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.3) 0%, var(--navy) 70%);
-        }
-        .main-logo { width: 160px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
-        h1 { 
-            font-family: 'Krona One', sans-serif; font-size: clamp(2.5rem, 7vw, 4.5rem); 
-            line-height: 1; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -2px;
-        }
-        h1 span { color: var(--gold); display: block; }
-        .slogan { 
-            font-size: 20px; letter-spacing: 10px; color: var(--gold); 
-            text-transform: uppercase; margin-bottom: 30px; border-top: 1px solid var(--slate); border-bottom: 1px solid var(--slate); padding: 5px 0;
+            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.2) 0%, rgba(7, 11, 18, 1) 70%);
         }
 
-        /* --- COUNTDOWN --- */
-        .countdown { display: flex; gap: 15px; margin-bottom: 30px; }
-        .count-tile { 
-            background: rgba(30, 41, 59, 0.8); border: 1px solid var(--slate);
-            padding: 15px; border-radius: 12px; min-width: 100px; text-align: center;
-        }
-        .count-num { font-family: 'Krona One', sans-serif; font-size: 2.2rem; color: #fff; display: block; }
-        .count-label { font-size: 12px; color: var(--gold); text-transform: uppercase; }
-
-        /* --- CONTENT SECTIONS --- */
-        section { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { 
-            font-family: 'Krona One', sans-serif; font-size: 28px; color: var(--gold); 
-            margin-bottom: 25px; border-left: 6px solid var(--gold); padding-left: 15px; text-transform: uppercase;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(7,11,12,0.1), var(--bg-main));
+            z-index: 1;
         }
 
-        .grid-info { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 15px; margin-bottom: 15px; }
-        .tile { background: var(--navy-light); padding: 30px; border-radius: 15px; border: 1px solid var(--slate); }
-
-        /* --- STADIUM CARD --- */
-        .stadium-card {
-            background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            padding: 40px; border-radius: 15px; text-align: center; border: 1px solid var(--slate);
-        }
-        .btn-map {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--gold); color: #000; padding: 15px 30px;
-            border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem;
-            margin-top: 15px; transition: 0.3s;
-        }
-        .btn-map:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4); }
-
-        /* --- TEAMS GRID --- */
-        .teams-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px; }
-        .team-tile { 
-            background: var(--slate); padding: 25px; border-radius: 15px; text-align: center; 
-            border-bottom: 4px solid var(--gold);
-        }
-        .team-tile i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
-
-        /* --- MATCH SCHEDULE --- */
-        .match-row {
-            background: var(--navy-light); padding: 15px 25px; border-radius: 10px;
-            margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;
-            border-left: 4px solid var(--slate);
-        }
-        .match-row.active { border-left-color: var(--gold); background: rgba(251, 191, 36, 0.05); }
-        .vs-text { font-family: 'Krona One', sans-serif; color: var(--gold); font-size: 1.2rem; }
-
-        /* --- QUOTE --- */
-        .quote-box {
-            text-align: center; padding: 30px; font-style: italic; font-size: 1.3rem;
-            color: #cbd5e1; border-top: 1px solid var(--slate); margin-top: 20px;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* --- SUPPORT / PROMPTPAY (เด่นที่สุด) --- */
-        .support-section {
-            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-            border: 2px solid var(--gold); border-radius: 30px;
-            padding: 50px 20px; text-align: center; margin-top: 20px;
-            box-shadow: 0 0 40px rgba(251, 191, 36, 0.1);
+        .hero-logo {
+            width: 140px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4));
         }
-        .pp-num {
-            font-family: 'Krona One', sans-serif;
-            font-size: clamp(2rem, 10vw, 5rem);
-            color: var(--gold); display: block; margin: 20px 0;
-            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5); letter-spacing: 2px;
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
-        .qr-img { background: #fff; padding: 15px; border-radius: 15px; width: 250px; margin: 20px auto; }
-        .qr-img img { width: 100%; height: auto; display: block; }
 
-        footer { padding: 40px; text-align: center; border-top: 1px solid var(--slate); color: #64748b; }
-
-        @media (max-width: 768px) {
-            .grid-info, .teams-grid { grid-template-columns: 1fr; }
-            .match-row { flex-direction: column; gap: 10px; text-align: center; }
-            h1 { font-size: 2.5rem; }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
-    </style>
-</head>
-<body>
 
-    <nav>
-        <a href="#" class="nav-logo">
-            <img src="logo.png" alt="สน.ลำหิน">
-            <span>LAMHIN CUP</span>
-        </a>
-        <div style="display: flex; gap: 15px;">
-            <a href="#location" style="color: #fff; text-decoration: none; font-weight: 600;">สถานที่</a>
-            <a href="#support" style="color: var(--gold); text-decoration: none; font-weight: 700;">สนับสนุน</a>
-        </div>
-    </nav>
+        h1 span {
+            color: var(--accent-gold);
+            display: block;
+            font-size: 4.5rem;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+        }
 
-    <header>
-        <img src="logo.png" alt="โลโก้ สน.ลำหิน" class="main-logo">
-        <p class="slogan">STRENGTH • UNITY • GLORY</p>
-        <h1>LAMHIN POLICE<span>CUP 2026</span></h1>
-        
-        <div class="countdown" id="timer">
-            <div class="count-tile"><span class="count-num" id="d">00</span><span class="count-label">Days</span></div>
-            <div class="count-tile"><span class="count-num" id="h">00</span><span class="count-label">Hours</span></div>
-            <div class="count-tile"><span class="count-num" id="m">00</span><span class="count-label">Mins</span></div>
-            <div class="count-tile"><span class="count-num" id="s">00</span><span class="count-label">Secs</span></div>
-        </div>
-        
-        <p style="font-weight: 700; color: var(--gold); font-size: 1.2rem;">ศุกร์ที่ 22 พฤษภาคม 2569 | 15.00 น.</p>
-    </header>
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    <section id="location">
-        <h2 class="section-title">Schedule & Arena</h2>
-        <div class="grid-info">
-            <div class="tile">
-                <h3 style="color: var(--gold); margin-bottom: 10px;"><i class="fa-solid fa-calendar-day"></i> กำหนดการแข่งขัน</h3>
-                <p style="font-size: 1.3rem; font-weight: 700;">วันศุกร์ที่ 22 พฤษภาคม 2569</p>
-                <p>เวลา 15.00 น. เป็นต้นไป ณ สนาม ยูงทอง FC</p>
-                <p style="margin-top: 15px; color: #94a3b8; border-top: 1px solid var(--slate); padding-top: 10px;">
-                    * โปรดเตรียมตัวก่อนเวลาเริ่มแข่งขัน 30 นาที
-                </p>
-            </div>
-            <div class="stadium-card">
-                <i class="fa-solid fa-location-dot" style="font-size: 2.5rem; color: var(--gold);"></i>
-                <h3 style="margin: 10px 0;">สนามยูงทอง FC</h3>
-                <a href="https://share.google/hFbcayjKVyY41QRmQ" target="_blank" class="btn-map">
-                    <i class="fa-solid fa-location-arrow"></i> นำทางไปสนาม
-                </a>
-            </div>
-        </div>
-    </section>
+        /* Countdown Grid */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
 
-    <section id="teams">
-        <h2 class="section-title">The Power Teams</h2>
-        <div class="teams-grid">
-            <div class="team-tile">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <h3>TEAM A</h3>
-                <p>ฝ่ายงานสอบสวน</p>
-                <p style="font-size: 0.8rem; color: var(--gold);">(The Investigators)</p>
-            </div>
-            <div class="team-tile">
-                <i class="fa-solid fa-handcuffs"></i>
-                <h3>TEAM B</h3>
-                <p>ฝ่ายงานสืบสวน + อำนวยการ</p>
-            </div>
-            <div class="team-tile">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>TEAM C</h3>
-                <p>ฝ่ายงานปราบปราม + จราจร</p>
-            </div>
-        </div>
-    </section>
+        .countdown-box {
+            background: rgba(15, 22, 38, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 10px;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
 
-    <section id="matches">
-        <h2 class="section-title">Match Day Timeline</h2>
-        <div class="match-row active">
-            <div><strong>MATCH 1</strong> (เปิดสนาม)</div>
-            <div class="vs-text">TEAM A VS TEAM B</div>
-        </div>
-        <div class="match-row">
-            <div><strong>MATCH 2</strong> (ต่อเนื่อง)</div>
-            <div class="vs-text">TEAM B VS TEAM C</div>
-        </div>
-        <div class="match-row">
-            <div><strong>MATCH 3</strong> (ปิดท้าย)</div>
-            <div class="vs-text">TEAM C VS TEAM A</div>
-        </div>
-        <div class="quote-box">
-            "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาค"
-            <br><small style="font-size: 0.9rem; color: var(--gold);">— คณะกรรมการจัดการแข่งขัน —</small>
-        </div>
-    </section>
+        .countdown-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gold);
+        }
 
-    <section id="support">
-        <div class="support-section">
-            <img src="https://x-it.co.th/wp-content/uploads/2021/04/PromptPay-Logo.png" alt="PromptPay" style="height: 40px; margin-bottom: 10px;">
-            <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">สนับสนุนกองทุนสวัสดิการนักกีฬา สน.ลำหิน</p>
-            
-            <span class="pp-num">061 287 8990</span>
-            
-            <h3 style="font-size: 1.8rem;">นาย จิรายุส ครองยุติ</h3>
-            
-            <div class="qr-img">
-                <img src="qr.png" alt="QR Code PromptPay">
-                <span style="color: #000; font-weight: 800; font-size: 14px;">SCAN TO PAY</span>
-            </div>
-            <p style="color: var(--gold); margin-top: 10px;">ขอบพระคุณสำหรับทุกกำลังใจที่มอบให้นักกีฬา</p>
-        </div>
-    </section>
+        .time-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
 
-    <footer>
-        <img src="logo.png" alt="สน.ลำหิน" style="height: 60px; margin-bottom: 15px;"><br>
-        <strong>LAMHIN POLICE STATION 4.0</strong><br>
-        การแข่งขันฟุตบอล 7 คน เพื่อความสามัคคีและเกียรติยศ
-    </footer>
+        .time-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    <script>
-        // Countdown Timer Logic
-        const target = new Date("May 22, 2026 15:00:00").getTime();
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
 
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            
-            if (diff > 0) {
-                document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("s").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #f59e0b;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Info Grid / Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        /* Interactive Tabs Section */
+        .interactive-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .tab-menu {
+            display: flex;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-light);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-gold);
+            background: rgba(251, 191, 36, 0.05);
+            position: relative;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .tab-content {
+            padding: 40px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Interactive Timeline/Schedule Layout */
+        .match-card {
+            background: rgba(7, 11, 18, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .match-card:hover {
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .match-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .match-tag {
+            align-self: flex-start;
+            font-size: 0.8rem;
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .match-teams {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+
+        .match-vs {
+            color: var(--accent-gold);
+            margin: 0 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .match-time {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Rules Layout */
+        .rules-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .rule-list {
+            list-style: none;
+        }
+
+        .rule-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .rule-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-gold);
+        }
+
+        .points-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .points-table th, .points-table td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .points-table th {
+            background: rgba(255,255,255,0.02);
+            color: var(--accent-gold);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .points-table td {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .points-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Interactive QR Fund Section */
