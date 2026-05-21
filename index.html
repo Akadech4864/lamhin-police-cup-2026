@@ -33,69 +33,71 @@
 
         /* --- HERO SECTION --- */
         header {
-            min-height: 80vh;
+            padding: 50px 20px 20px 20px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 40px 20px;
+            text-align: center;
             background: radial-gradient(circle at center, rgba(30, 58, 138, 0.2) 0%, var(--bg-deep) 80%);
         }
-        .main-logo { width: 140px; margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+        .main-logo { width: 130px; margin-bottom: 15px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
         
         h1 { font-family: var(--font-head); font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; }
         h1 span { color: var(--gold); display: block; font-size: clamp(2.5rem, 10vw, 4.5rem); text-shadow: 0 0 20px var(--gold-glow); }
-        .slogan { font-size: 14px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-top: 15px; }
+        .slogan { font-size: 14px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-top: 10px; }
 
-        .hero-info { margin-top: 30px; font-weight: 600; color: var(--gold); font-size: 1.2rem; }
+        .hero-info { margin-top: 20px; font-weight: 600; color: var(--gold); font-size: 1.2rem; }
 
-        /* --- ARENA INFO (Before Nav) --- */
-        .arena-intro { padding: 40px 20px; text-align: center; background: var(--bg-surface); }
-        .arena-intro h2 { font-size: 1.8rem; margin-bottom: 10px; color: var(--gold); }
-        .btn-nav { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-top: 15px; }
+        /* --- ARENA INFO --- */
+        .arena-intro { padding: 10px 20px 30px 20px; text-align: center; background: transparent; }
+        .arena-intro h2 { font-size: 1.6rem; margin-bottom: 5px; color: var(--white); font-weight: 700; }
+        .arena-intro p { color: #94a3b8; font-size: 1rem; }
+        .btn-nav { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #000; padding: 10px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-top: 15px; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2); }
 
         /* --- STICKY NAVIGATION --- */
         .sticky-nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--bg-accent);
             display: flex; justify-content: center;
         }
-        .nav-inner { display: flex; overflow-x: auto; width: 100%; max-width: 800px; padding: 0 10px; }
+        .nav-inner { display: flex; overflow-x: auto; width: 100%; max-width: 800px; padding: 0 5px; }
         .nav-link { 
-            flex: 1; text-align: center; padding: 15px 10px; 
+            flex: 1; text-align: center; padding: 14px 10px; 
             color: var(--white); text-decoration: none; white-space: nowrap;
             font-size: 0.95rem; font-weight: 500; transition: 0.3s;
         }
         .nav-link:hover { color: var(--gold); }
 
         /* --- SECTIONS --- */
-        section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--bg-accent); }
-        .section-title { font-size: 1.6rem; color: var(--gold); margin-bottom: 30px; text-align: center; text-transform: uppercase; font-weight: 700; }
+        section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--bg-accent); }
+        .section-title { font-size: 1.5rem; color: var(--gold); margin-bottom: 25px; text-align: center; text-transform: uppercase; font-weight: 700; }
 
         /* --- TEAM CARDS --- */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--bg-surface); padding: 30px 20px; border-radius: 15px; border: 1px solid var(--bg-accent); text-align: center; }
-        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
-        .card h3 { color: var(--gold); margin-bottom: 10px; font-size: 1.3rem; }
+        .card { background: var(--bg-surface); padding: 25px 20px; border-radius: 15px; border: 1px solid var(--bg-accent); text-align: center; }
+        .card i { font-size: 2.2rem; color: var(--gold); margin-bottom: 12px; }
+        .card h3 { color: var(--gold); margin-bottom: 8px; font-size: 1.25rem; }
 
         /* --- TAB SYSTEM --- */
         .tab-wrapper { background: var(--bg-surface); border-radius: 20px; border: 1px solid var(--bg-accent); overflow: hidden; }
         .tab-menu { display: flex; background: rgba(0,0,0,0.2); }
-        .tab-btn { flex: 1; padding: 15px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; }
+        .tab-btn { flex: 1; padding: 14px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; font-size: 0.95rem; }
         .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(251, 191, 36, 0.05); }
-        .tab-content { padding: 30px; display: none; }
+        .tab-content { padding: 25px; display: none; }
         .tab-content.active { display: block; }
         
         .rule-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
         /* --- MATCH LIST --- */
-        .match-card { background: var(--bg-surface); padding: 20px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid var(--gold); display: flex; justify-content: space-between; align-items: center; }
+        .match-card { background: var(--bg-surface); padding: 18px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid var(--gold); display: flex; justify-content: space-between; align-items: center; }
         .match-card span:last-child { font-weight: 700; color: var(--gold); }
 
         /* --- SUPPORT SECTION --- */
-        .support-hero { background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border: 2px solid var(--gold); border-radius: 30px; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
-        .pp-number { font-size: clamp(2rem, 10vw, 4rem); color: var(--gold); font-weight: 700; display: block; margin: 20px 0; text-shadow: 0 0 15px var(--gold-glow); letter-spacing: 2px; }
-        .qr-box { background: #fff; padding: 15px; border-radius: 15px; display: inline-block; margin-top: 20px; }
-        .qr-box img { width: 200px; height: auto; display: block; }
+        .support-hero { background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border: 2px solid var(--gold); border-radius: 30px; padding: 45px 20px; text-align: center; margin-bottom: 20px; }
+        .pp-label-top { font-size: 0.95rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; display: block; font-weight: 500; }
+        .pp-number { font-size: clamp(2rem, 9vw, 3.8rem); color: var(--gold); font-weight: 700; display: block; margin: 5px 0 15px 0; text-shadow: 0 0 15px var(--gold-glow); letter-spacing: 1px; }
+        .qr-box { background: #fff; padding: 15px; border-radius: 15px; display: inline-block; margin-top: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .qr-box img { width: 200px; height: auto; display: block; border-radius: 4px; }
 
         /* --- STICKY BOTTOM BAR --- */
         .sticky-footer {
@@ -106,13 +108,14 @@
             transform: translateY(100%); transition: 0.4s ease;
         }
         .sticky-footer.show { transform: translateY(0); }
-        .sticky-btn { background: #000; color: var(--gold); padding: 6px 18px; border-radius: 50px; text-decoration: none; font-size: 0.85rem; }
+        .sticky-btn { background: #000; color: var(--gold); padding: 6px 20px; border-radius: 50px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        footer { text-align: center; padding: 60px 20px 100px; color: #64748b; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px 20px 100px; color: #64748b; font-size: 0.8rem; }
 
         @media (max-width: 600px) {
-            .match-card { flex-direction: column; text-align: center; gap: 10px; }
-            .nav-link { font-size: 0.85rem; }
+            .match-card { flex-direction: column; text-align: center; gap: 8px; }
+            .nav-link { font-size: 0.85rem; padding: 12px 6px; }
+            section { padding: 35px 15px; }
         }
     </style>
 </head>
@@ -122,13 +125,13 @@
         <img src="logo.png" alt="สน.ลำหิน" class="main-logo" onerror="this.style.display='none'">
         <h1>LAMHIN POLICE<span>CUP 2026</span></h1>
         <p class="slogan">STRENGTH • UNITY • GLORY</p>
-        <div class="hero-info">22 พฤษภาคม 2569 | 15.00 น.</div>
+        <div class="hero-info">วันศุกร์ที่ 22 พฤษภาคม 2569 | 15.00 น.</div>
     </header>
 
     <div class="arena-intro" id="arena">
         <h2>สนามฟุตบอล ยูงทอง FC</h2>
         <p>สนามฟุตบอล 7 คน มาตรฐานคุณภาพสูง ลำหิน</p>
-        <a href="https://share.google/qNxb9U32QFJhTzqTu" target="_blank" class="btn-nav">
+        <a href="https://maps.app.goo.gl/uutjC6h8WFT9wkh69" target="_blank" class="btn-nav">
             <i class="fa-solid fa-location-arrow"></i> นำทางไปสนาม
         </a>
     </div>
@@ -173,9 +176,9 @@
             </div>
 
             <div id="tab1" class="tab-content active">
-                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:#4ade80">+3 แต้ม</span></div>
-                <div class="rule-row"><span>เสมอ (Draw)</span><span style="color:#fbbf24">+1 แต้ม</span></div>
-                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#f87171">0 แต้ม</span></div>
+                <div class="rule-row"><span>ชนะ (Win)</span><span style="color:#4ade80; font-weight:600;">+3 แต้ม</span></div>
+                <div class="rule-row"><span>เสมอ (Draw)</span><span style="color:#fbbf24; font-weight:600;">+1 แต้ม</span></div>
+                <div class="rule-row"><span>แพ้ (Loss)</span><span style="color:#f87171; font-weight:600;">0 แต้ม</span></div>
                 <p style="margin-top:15px; color:#94a3b8; font-size:0.9rem;">*ตัดสินหาผู้ชนะจากคะแนนรวมสูงสุดในระบบ League</p>
             </div>
 
@@ -189,7 +192,7 @@
             </div>
 
             <div id="tab3" class="tab-content">
-                <p style="font-style: italic; border-left: 3px solid var(--gold); padding-left: 15px;">
+                <p style="font-style: italic; border-left: 3px solid var(--gold); padding-left: 15px; color: #cbd5e1;">
                     "เนื่องจากทีม A (ฝ่ายสอบสวน) อยู่ฝ่ายเดียว จึงให้แข่งขันก่อนและได้พัก 1 แมตช์ เพื่อความเท่าเทียมภายใต้ความเสมอภาคของนักกีฬา"
                 </p>
             </div>
@@ -214,15 +217,17 @@
 
     <section id="support">
         <div class="support-hero">
-            <h2 class="section-title" style="margin-bottom:10px;">ร่วมสนับสนุนการแข่งขัน</h2>
-            <p style="font-size:0.9rem; color:#94a3b8;">กองทุนสวัสดิการ เพื่อขวัญและกำลังใจนักกีฬา สน.ลำหิน</p>
+            <h2 class="section-title" style="margin-bottom:8px; color: var(--white);">ร่วมสนับสนุนการแข่งขัน</h2>
+            <p style="font-size:0.9rem; color:#94a3b8; margin-bottom: 20px;">กองทุนสวัสดิการ เพื่อขวัญและกำลังใจนักกีฬา สน.ลำหิน</p>
             
+            <span class="pp-label-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
-            <p style="font-size:1.4rem; font-weight:700;">นาย จิรายุส ครองยุติ</p>
+            
+            <p style="font-size:1.4rem; font-weight:700; color: var(--white);">นาย จิรายุส ครองยุติ</p>
 
             <div class="qr-box">
                 <img src="qr-code.png" alt="QR PromptPay" onerror="this.style.display='none'">
-                <p style="color:#000; font-weight:800; font-size:0.7rem; margin-top:5px;">SCAN TO PAY</p>
+                <p style="color:#000; font-weight:800; font-size:0.7rem; margin-top:5px; text-transform: uppercase; letter-spacing: 0.5px;">Scan To Pay</p>
             </div>
         </div>
     </section>
@@ -254,7 +259,7 @@
             var bar = document.getElementById("bottomBar");
             var supportSection = document.getElementById("support").offsetTop;
             
-            if (window.pageYOffset > 500 && window.pageYOffset < supportSection - 400) {
+            if (window.pageYOffset > 400 && window.pageYOffset < supportSection - 400) {
                 bar.classList.add("show");
             } else {
                 bar.classList.remove("show");
