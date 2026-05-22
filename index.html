@@ -45,7 +45,7 @@
         }
 
         /* 2. HERO SECTION */
-        header { padding: 60px 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        header { padding: 80px 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
         h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; }
         h1 span { color: var(--police-yellow); display: block; font-size: clamp(2.2rem, 10vw, 4.5rem); }
@@ -78,7 +78,17 @@
 
         /* 4. SECTIONS */
         section { padding: 60px 20px; max-width: 1150px; margin: 0 auto; }
-        .section-title { font-size: 1.8rem; color: var(--police-yellow); margin-bottom: 40px; text-align: center; text-transform: uppercase; font-weight: 800; font-family: var(--font-head); }
+        /* ปรับฟอนต์หัวข้อให้เป็นแบบ Krona One เหมือนหัวข้อหลัก */
+        .section-title { 
+            font-size: clamp(1.4rem, 5vw, 1.8rem); 
+            color: var(--police-yellow); 
+            margin-bottom: 40px; 
+            text-align: center; 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            font-family: var(--font-head); 
+            letter-spacing: -1px;
+        }
 
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card { padding: 35px 20px; text-align: center; }
@@ -89,7 +99,7 @@
         .epl-match-container { display: flex; flex-direction: column; gap: 25px; max-width: 950px; margin: 0 auto; }
         .epl-match-card {
             display: grid; 
-            grid-template-columns: 1fr 120px 1fr; /* บังคับ 3 คอลัมน์ */
+            grid-template-columns: 1fr 120px 1fr; 
             align-items: center;
             padding: 40px 20px; 
             text-align: center; 
@@ -135,7 +145,7 @@
         .sticky-footer {
             position: fixed; bottom: 0; width: 100%; z-index: 1001;
             background: rgba(251, 191, 36, 0.95);
-            backdrop-filter: blur(15px); color: #000; padding: 14px 5%;
+            backdrop-filter: blur(15px); color: #000; padding: 10px 5%;
             display: flex; justify-content: space-between; align-items: center;
             font-weight: 800; transform: translateY(100%); transition: 0.5s;
         }
@@ -152,7 +162,6 @@
             .epl-time-display { font-size: 0.8rem; padding: 4px 10px; }
             .epl-vs-text { font-size: 0.7rem; }
             .nav-link { font-size: 0.75rem; padding: 15px 2px; }
-            .section-title { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -174,7 +183,7 @@
 
     <nav class="sticky-nav">
         <div class="nav-inner">
-            <a href="#teams" class="nav-link">สายงาน</a>
+            <a href="#teams" class="nav-link">ทีมแข่งขัน</a>
             <a href="#schedule" class="nav-link">MATCH DAY</a>
             <a href="#rules" class="nav-link">กติกา</a>
             <a href="#support" class="nav-link">สนับสนุน</a>
@@ -188,16 +197,19 @@
                 <i class="fa-solid fa-scale-balanced"></i>
                 <h3>TEAM A</h3>
                 <p>ฝ่ายงานสอบสวน</p>
+                <small style="opacity: 0.6;">1 ทีมเต็ม</small>
             </div>
             <div class="card glass">
                 <i class="fa-solid fa-handcuffs"></i>
                 <h3>TEAM B</h3>
                 <p>ฝ่ายสืบสวน + จราจร + ธุรการ</p>
+                <small style="opacity: 0.6;">1 ทีมร่วมปฏิบัติการ</small>
             </div>
             <div class="card glass">
                 <i class="fa-solid fa-shield-halved"></i>
                 <h3>TEAM C</h3>
                 <p>ฝ่ายงานป้องกันปราบปราม</p>
+                <small style="opacity: 0.6;">1 ทีมเต็ม</small>
             </div>
         </div>
     </section>
@@ -274,7 +286,7 @@
             </div>
 
             <div id="t2" class="tab-content">
-                <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที (แข่ง 2 ครึ่ง)</span></div>
+                <div class="rule-row"><span>เวลาแข่งขัน</span><span>ครึ่งละ 15 นาที (แข่งขัน 2 ครึ่ง)</span></div>
                 <div class="rule-row"><span>เวลาพักครึ่ง</span><span>5 นาที</span></div>
                 <div class="rule-row"><span>พักเปลี่ยนทีม</span><span>5 นาที</span></div>
                 <div class="rule-row" style="border:none; margin-top:15px; font-weight:800; color:var(--police-yellow);">
@@ -296,7 +308,6 @@
             <span class="pp-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
             <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
-            
             <div class="qr-box">
                 <img src="qr-code.png" alt="QR" onerror="this.style.display='none'">
                 <p style="color:#000; font-weight:900; font-size:0.8rem; margin-top:8px; text-transform:uppercase;">Scan to Support</p>
@@ -315,7 +326,6 @@
     </footer>
 
     <script>
-        // Tab System
         function openTab(evt, tabId) {
             var i, content, btns;
             content = document.getElementsByClassName("tab-content");
@@ -326,7 +336,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Sticky Bottom Bar & Nav Highlighting
         window.onscroll = function() {
             var bar = document.getElementById("bottomBar");
             var supportSection = document.getElementById("support").offsetTop;
