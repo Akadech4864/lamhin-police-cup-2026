@@ -34,6 +34,7 @@
             font-family: var(--font-main);
             line-height: 1.4;
             overflow-x: hidden;
+            padding-bottom: 70px; /* เว้นที่ให้แถบตรึงด้านล่าง */
         }
 
         .glass {
@@ -48,13 +49,13 @@
         header { padding: 60px 20px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
         
-        /* ฟอนต์หัวเรื่องใหญ่สุดยังคงความเท่แบบเดิม */
+        /* ฟอนต์ชื่อรายการใหญ่สุด (ล็อคไว้) */
         h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; }
         h1 span { color: var(--police-yellow); display: block; font-size: clamp(2.2rem, 10vw, 4.5rem); }
         .slogan { font-size: 14px; letter-spacing: 5px; color: var(--police-yellow); text-transform: uppercase; margin-top: 10px; font-weight: 600; opacity: 0.9; }
         .hero-info { margin-top: 25px; font-weight: 700; color: var(--white); font-size: 1.3rem; }
 
-        /* --- ARENA INFO (ใช้ฟอนต์ Kanit ตามโจทย์) --- */
+        /* --- ARENA INFO (กลับมาใช้ Kanit ตามสั่ง) --- */
         .arena-intro { padding: 10px 20px 40px; text-align: center; }
         .arena-intro h2 { 
             font-family: var(--font-main); 
@@ -69,7 +70,6 @@
             border-radius: 50px; font-weight: 700; text-decoration: none; 
             margin-top: 20px; transition: 0.3s; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
         }
-        .btn-nav:hover { transform: scale(1.05); background: var(--white); }
 
         /* 3. STICKY NAVIGATION */
         .sticky-nav {
@@ -86,10 +86,10 @@
         }
         .nav-link:hover, .nav-link.active { color: var(--police-yellow); background: rgba(251, 191, 36, 0.1); }
 
-        /* 4. SECTIONS (แก้ไขฟอนต์หัวข้อเป็น Kanit ทั้งหมดตามโจทย์) */
+        /* 4. SECTIONS (ล็อคใช้ฟอนต์ Kanit ทั้งหมดตามโจทย์) */
         section { padding: 60px 20px; max-width: 1150px; margin: 0 auto; }
         .section-title { 
-            font-family: var(--font-main); /* เปลี่ยนเป็น Kanit แบบเดียวกับชื่อสนาม */
+            font-family: var(--font-main); 
             font-size: clamp(1.6rem, 6vw, 2.2rem); 
             color: var(--police-yellow); 
             margin-bottom: 40px; 
@@ -139,7 +139,7 @@
         .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
         .tab-btn { flex: 1; padding: 18px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; opacity: 0.6; font-size: 1.1rem; }
         .tab-btn.active { opacity: 1; color: var(--police-yellow); border-bottom: 4px solid var(--police-yellow); background: rgba(251, 191, 36, 0.05); }
-        .tab-content { padding: 40px; display: none; animation: fadeIn 0.4s ease; }
+        .tab-content { padding: 40px; display: none; }
         .tab-content.active { display: block; }
         .rule-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
 
@@ -149,22 +149,19 @@
         .pp-top { font-size: 0.95rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 5px; }
         .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--police-yellow); font-weight: 800; display: block; margin: 5px 0 15px; text-shadow: 0 0 25px rgba(251, 191, 36, 0.6); }
         .qr-box { background: #fff; padding: 20px; border-radius: 25px; display: inline-block; margin-top: 25px; }
-        .qr-box img { width: 220px; height: auto; display: block; border-radius: 5px; }
+        .qr-box img { width: 220px; height: auto; display: block; }
 
-        /* 8. STICKY FOOTER */
+        /* 8. STICKY FOOTER (โชว์ค้างไว้ตลอดเวลา ห้ามซ่อน) */
         .sticky-footer {
-            position: fixed; bottom: 0; width: 100%; z-index: 1001;
+            position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1001;
             background: rgba(251, 191, 36, 0.95);
             backdrop-filter: blur(15px); color: #000; padding: 14px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            font-weight: 800; transform: translateY(100%); transition: 0.5s;
+            font-weight: 800; box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
         }
-        .sticky-footer.show { transform: translateY(0); }
         .sticky-btn { background: #050b18; color: var(--police-yellow); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 80px 20px 140px; opacity: 0.4; font-size: 0.9rem; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { text-align: center; padding: 80px 20px 40px; opacity: 0.4; font-size: 0.9rem; }
 
         /* 9. MOBILE ADJUSTMENTS */
         @media (max-width: 600px) {
@@ -179,7 +176,7 @@
 <body>
 
     <header id="home">
-        <img src="logo.png" alt="สน.ลำหิน" class="main-logo" onerror="this.style.display='none'">
+        <img src="logo.png" alt="สน.ลำหิน" class="main-logo">
         <h1>LAMHIN POLICE<span>CUP 2026</span></h1>
         <p class="slogan">STRENGTH • UNITY • GLORY</p>
         <div class="hero-info">วันศุกร์ที่ 22 พฤษภาคม 2569 | 15.00 น.</div>
@@ -318,4 +315,50 @@
             <p class="support-title-text">ร่วมสนับสนุนกองทุนสวัสดิการข้าราชการตำรวจ สน.ลำหิน</p>
             <span class="pp-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
-            <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ
+            <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
+            
+            <div class="qr-box">
+                <img src="qr-code.png" alt="QR PromptPay">
+                <p style="color:#000; font-weight:900; font-size:0.8rem; margin-top:8px; text-transform:uppercase;">Scan to Support</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sticky-footer" id="bottomBar">
+        <span>🏆 สนับสนุนการแข่งขัน สน.ลำหิน</span>
+        <a href="#support" class="sticky-btn">โอนเงิน</a>
+    </div>
+
+    <footer>
+        <img src="logo.png" alt="สน.ลำหิน" style="height:50px; margin-bottom:20px; opacity:0.3;">
+        <p>© 2026 LAMHIN POLICE STATION 4.0 | OFFICIAL SITE</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabId) {
+            var i, content, btns;
+            content = document.getElementsByClassName("tab-content");
+            for (i = 0; i < content.length; i++) content[i].classList.remove("active");
+            btns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < btns.length; i++) btns[i].classList.remove("active");
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        window.onscroll = function() {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.nav-link');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+                    });
+                }
+            });
+        };
+    </script>
+</body>
+</html>
