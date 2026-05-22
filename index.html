@@ -24,7 +24,7 @@
             --font-head: 'Krona One', sans-serif;
         }
 
-        /* 1. SETUP */
+        /* 1. RESET & SETUP */
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
@@ -45,26 +45,36 @@
         }
 
         /* 2. HERO SECTION */
-        header { padding: 80px 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        header { padding: 60px 20px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .main-logo { width: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)); }
+        
+        /* ฟอนต์หัวเรื่องใหญ่สุดยังคงความเท่แบบเดิม */
         h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 8vw, 4rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; }
         h1 span { color: var(--police-yellow); display: block; font-size: clamp(2.2rem, 10vw, 4.5rem); }
         .slogan { font-size: 14px; letter-spacing: 5px; color: var(--police-yellow); text-transform: uppercase; margin-top: 10px; font-weight: 600; opacity: 0.9; }
         .hero-info { margin-top: 25px; font-weight: 700; color: var(--white); font-size: 1.3rem; }
 
+        /* --- ARENA INFO (ใช้ฟอนต์ Kanit ตามโจทย์) --- */
         .arena-intro { padding: 10px 20px 40px; text-align: center; }
-        .arena-intro h2 { font-size: 1.6rem; color: var(--police-yellow); font-weight: 700; margin-bottom: 5px; }
+        .arena-intro h2 { 
+            font-family: var(--font-main); 
+            font-size: 1.8rem; 
+            color: var(--police-yellow); 
+            font-weight: 700; 
+            margin-bottom: 5px; 
+        }
         .btn-nav { 
             display: inline-flex; align-items: center; gap: 10px; 
             background: var(--police-yellow); color: #000; padding: 12px 30px; 
             border-radius: 50px; font-weight: 700; text-decoration: none; 
             margin-top: 20px; transition: 0.3s; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
         }
+        .btn-nav:hover { transform: scale(1.05); background: var(--white); }
 
         /* 3. STICKY NAVIGATION */
         .sticky-nav {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(5, 11, 24, 0.9);
+            background: rgba(5, 11, 24, 0.95);
             backdrop-filter: blur(20px); border-bottom: 2px solid var(--police-yellow);
             display: flex; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -76,51 +86,51 @@
         }
         .nav-link:hover, .nav-link.active { color: var(--police-yellow); background: rgba(251, 191, 36, 0.1); }
 
-        /* 4. SECTIONS */
+        /* 4. SECTIONS (แก้ไขฟอนต์หัวข้อเป็น Kanit ทั้งหมดตามโจทย์) */
         section { padding: 60px 20px; max-width: 1150px; margin: 0 auto; }
-        /* ปรับฟอนต์หัวข้อให้เป็นแบบ Krona One เหมือนหัวข้อหลัก */
         .section-title { 
-            font-size: clamp(1.4rem, 5vw, 1.8rem); 
+            font-family: var(--font-main); /* เปลี่ยนเป็น Kanit แบบเดียวกับชื่อสนาม */
+            font-size: clamp(1.6rem, 6vw, 2.2rem); 
             color: var(--police-yellow); 
             margin-bottom: 40px; 
             text-align: center; 
             text-transform: uppercase; 
-            font-weight: 800; 
-            font-family: var(--font-head); 
-            letter-spacing: -1px;
+            font-weight: 700; 
         }
 
+        /* --- TEAM CARDS --- */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { padding: 35px 20px; text-align: center; }
-        .card i { font-size: 2.5rem; color: var(--police-yellow); margin-bottom: 15px; }
-        .card h3 { color: var(--white); font-weight: 700; margin-bottom: 8px; font-size: 1.4rem; }
+        .card { padding: 35px 20px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--police-yellow); background: rgba(255, 255, 255, 0.08); }
+        .card i { font-size: 2.8rem; color: var(--police-yellow); margin-bottom: 15px; }
+        .card h3 { color: var(--white); font-weight: 700; margin-bottom: 8px; font-size: 1.5rem; }
 
-        /* 5. MATCH DAY - FIXED HORIZONTAL FOR ALL SCREENS */
+        /* 5. MATCH DAY - แนวนอนบรรทัดเดียว (รองรับมือถือ) */
         .epl-match-container { display: flex; flex-direction: column; gap: 25px; max-width: 950px; margin: 0 auto; }
         .epl-match-card {
             display: grid; 
-            grid-template-columns: 1fr 120px 1fr; 
+            grid-template-columns: 1fr 130px 1fr; 
             align-items: center;
-            padding: 40px 20px; 
+            padding: 45px 20px; 
             text-align: center; 
             position: relative;
         }
         .epl-team { display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .epl-team-crest { font-size: 2.5rem; color: var(--police-yellow); }
-        .epl-team-name { font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+        .epl-team-name { font-size: 1.15rem; font-weight: 700; color: var(--white); line-height: 1.2; }
         
         .epl-vs-block { display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .epl-vs-text { font-family: var(--font-head); font-size: 0.9rem; color: var(--text-dim); }
         .epl-time-display {
             font-family: var(--font-head); font-size: 1.1rem; color: var(--police-yellow);
-            font-weight: 800; background: rgba(0,0,0,0.4); padding: 6px 15px;
-            border-radius: 10px; border: 1px solid var(--police-yellow);
-            white-space: nowrap;
+            font-weight: 800; background: rgba(0,0,0,0.4); padding: 8px 18px;
+            border-radius: 12px; border: 1px solid var(--police-yellow);
+            white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .match-badge-tag {
             position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            background: var(--police-blue-light); color: #fff; font-size: 0.7rem;
-            padding: 4px 15px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+            background: var(--police-blue-light); color: #fff; font-size: 0.75rem;
+            padding: 5px 18px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
             font-weight: 600; text-transform: uppercase; white-space: nowrap;
         }
 
@@ -129,23 +139,23 @@
         .tab-menu { display: flex; background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid var(--glass-border); }
         .tab-btn { flex: 1; padding: 18px; border: none; background: none; color: var(--white); font-family: var(--font-main); font-weight: 600; cursor: pointer; opacity: 0.6; font-size: 1.1rem; }
         .tab-btn.active { opacity: 1; color: var(--police-yellow); border-bottom: 4px solid var(--police-yellow); background: rgba(251, 191, 36, 0.05); }
-        .tab-content { padding: 40px; display: none; }
+        .tab-content { padding: 40px; display: none; animation: fadeIn 0.4s ease; }
         .tab-content.active { display: block; }
         .rule-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
 
         /* 7. SUPPORT SECTION */
         .support-hero { padding: 60px 20px; text-align: center; border: 3px solid var(--police-yellow); box-shadow: 0 0 40px rgba(251, 191, 36, 0.2); }
-        .support-title-text { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 15px; }
-        .pp-top { font-size: 0.9rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; }
+        .support-title-text { font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+        .pp-top { font-size: 0.95rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 5px; }
         .pp-number { font-size: clamp(2.2rem, 10vw, 4.2rem); color: var(--police-yellow); font-weight: 800; display: block; margin: 5px 0 15px; text-shadow: 0 0 25px rgba(251, 191, 36, 0.6); }
         .qr-box { background: #fff; padding: 20px; border-radius: 25px; display: inline-block; margin-top: 25px; }
-        .qr-box img { width: 220px; height: auto; display: block; }
+        .qr-box img { width: 220px; height: auto; display: block; border-radius: 5px; }
 
         /* 8. STICKY FOOTER */
         .sticky-footer {
             position: fixed; bottom: 0; width: 100%; z-index: 1001;
             background: rgba(251, 191, 36, 0.95);
-            backdrop-filter: blur(15px); color: #000; padding: 10px 5%;
+            backdrop-filter: blur(15px); color: #000; padding: 14px 5%;
             display: flex; justify-content: space-between; align-items: center;
             font-weight: 800; transform: translateY(100%); transition: 0.5s;
         }
@@ -154,13 +164,14 @@
 
         footer { text-align: center; padding: 80px 20px 140px; opacity: 0.4; font-size: 0.9rem; }
 
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
         /* 9. MOBILE ADJUSTMENTS */
         @media (max-width: 600px) {
-            .epl-match-card { grid-template-columns: 1fr 80px 1fr; padding: 35px 10px 25px; gap: 5px; }
-            .epl-team-crest { font-size: 1.8rem; }
+            .epl-match-card { grid-template-columns: 1fr 90px 1fr; padding: 40px 10px 25px; gap: 5px; }
+            .epl-team-crest { font-size: 1.85rem; }
             .epl-team-name { font-size: 0.85rem; white-space: normal; }
-            .epl-time-display { font-size: 0.8rem; padding: 4px 10px; }
-            .epl-vs-text { font-size: 0.7rem; }
+            .epl-time-display { font-size: 0.85rem; padding: 5px 12px; }
             .nav-link { font-size: 0.75rem; padding: 15px 2px; }
         }
     </style>
@@ -307,57 +318,4 @@
             <p class="support-title-text">ร่วมสนับสนุนกองทุนสวัสดิการข้าราชการตำรวจ สน.ลำหิน</p>
             <span class="pp-top">Prompt Pay</span>
             <span class="pp-number">061 287 8990</span>
-            <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ</h3>
-            <div class="qr-box">
-                <img src="qr-code.png" alt="QR" onerror="this.style.display='none'">
-                <p style="color:#000; font-weight:900; font-size:0.8rem; margin-top:8px; text-transform:uppercase;">Scan to Support</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="sticky-footer" id="bottomBar">
-        <span>🏆 สนับสนุนการแข่งขัน สน.ลำหิน</span>
-        <a href="#support" class="sticky-btn">โอนเงิน</a>
-    </div>
-
-    <footer>
-        <img src="logo.png" alt="สน.ลำหิน" style="height:50px; margin-bottom:20px; opacity:0.3;" onerror="this.style.display='none'">
-        <p>© 2026 LAMHIN POLICE STATION 4.0 | OFFICIAL SITE</p>
-    </footer>
-
-    <script>
-        function openTab(evt, tabId) {
-            var i, content, btns;
-            content = document.getElementsByClassName("tab-content");
-            for (i = 0; i < content.length; i++) content[i].classList.remove("active");
-            btns = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < btns.length; i++) btns[i].classList.remove("active");
-            document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        window.onscroll = function() {
-            var bar = document.getElementById("bottomBar");
-            var supportSection = document.getElementById("support").offsetTop;
-            if (window.pageYOffset > 500 && window.pageYOffset < supportSection - 400) {
-                bar.classList.add("show");
-            } else {
-                bar.classList.remove("show");
-            }
-
-            const sections = document.querySelectorAll('section, header');
-            const navLinks = document.querySelectorAll('.nav-link');
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    const id = section.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
-                    });
-                }
-            });
-        };
-    </script>
-</body>
-</html>
+            <h3 style="font-size:1.8rem; font-weight:700;">นาย จิรายุส ครองยุติ
